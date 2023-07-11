@@ -1,4 +1,3 @@
--- highlight yanked stuff
 vim.cmd([[
     augroup highlight_yank
     autocmd!
@@ -10,21 +9,21 @@ vim.cmd([[
     augroup END
 ]])
 
+
+
 local set = vim.opt
+-- set.nu = true
+-- set.relativenumber = true
+-- vim.api.nvim_command('highlight NonText ctermfg=cyan guifg=cyan')
 
-set.guicursor = ""
-
-set.nu = true
-set.relativenumber = true
-
-vim.api.nvim_command('highlight NonText ctermfg=cyan guifg=cyan')
-
+-- set.cursorline = true
 set.tabstop = 4
 set.softtabstop = 4
 set.shiftwidth = 4
 set.expandtab = true
 
 set.smartindent = true
+set.guicursor = ""
 
 set.wrap = true
 
@@ -41,7 +40,9 @@ set.termguicolors = true
 set.scrolloff = 12
 set.signcolumn = "yes"
 
-set.isfname:append("@-@")
+set.mouse =
+
+    set.isfname:append("@-@")
 set.updatetime = 50
 
 -- vim.opt.colorcolumn = "81" -- set the color column to 81

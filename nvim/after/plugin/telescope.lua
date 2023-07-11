@@ -9,12 +9,13 @@ vim.keymap.set("n", "<leader>sw", function()
     builtin.grep_string({ search = vim.fn.input("Search Word: ") })
 end)
 
-vim.api.nvim_set_keymap("n", "<space>fb", ":Telescope file_browser<Cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<A-r>", ":Telescope file_browser path=%:p:h select_buffer=true<Cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<A-r>", ":Telescope file_browser<Cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>fb", ":Telescope file_browser path=%:p:h select_buffer=true<Cr>",
+    { noremap = true })
 
 require("telescope").setup({
     -- defaults = {
-    -- 	prompt_prefix = "  ",
+    prompt_prefix = "  ",
     defaults = {
         prompt_prefix = "  ",
         selection_caret = " ",
@@ -29,7 +30,7 @@ require("telescope").setup({
         file_browser = {
             add_dirs = true,
             hidden = true,
-            initial_mode = "normal",
+            initial_mode = "insert",
             -- disables netrw and use telescope-file-browser in its place
             hijack_netrw = true,
             display_stat = { date = true, size = true },
@@ -42,7 +43,7 @@ require("telescope").setup({
                     ["<BS>"] = fb_actions.goto_parent_dir,
                     ["H"] = fb_actions.toggle_hidden,
                     ["w"] = fb_actions.goto_cwd,
-                    -- your custom normal mode mappings
+                    -- ["l"] = "<Cr>",
                 },
             },
         },

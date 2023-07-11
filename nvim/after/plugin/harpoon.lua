@@ -1,9 +1,10 @@
 local ui = require("harpoon.ui")
 local mark = require("harpoon.mark")
 
+-- add and remove files
 vim.keymap.set('n', '<leader>e', mark.add_file)
--- remove / unmark a file in harpoon
 vim.keymap.set('n', '<leader>d', mark.rm_file)
+
 vim.keymap.set('n', '<C-e>', ui.toggle_quick_menu)
 
 vim.keymap.set('n', '<A-1>', function() ui.nav_file(1) end)
