@@ -9,7 +9,6 @@
     - [ ] nvim-dap-ui  
 - [x] advanced harpoon
 - [ ] configure ultisnips
-- [ ] configure markdown
 - [ ] better dashboard
 - [ ] fix fterm, use something else, need it on the side
 
