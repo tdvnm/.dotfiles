@@ -139,13 +139,6 @@ _G.packer_plugins = {
     path = "/home/shubhro/.local/share/nvim/site/pack/packer/start/copilot.vim",
     url = "https://github.com/github/copilot.vim"
   },
-  ["dashboard-nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/shubhro/.local/share/nvim/site/pack/packer/opt/dashboard-nvim",
-    url = "https://github.com/glepnir/dashboard-nvim"
-  },
   ["dracula.nvim"] = {
     loaded = true,
     path = "/home/shubhro/.local/share/nvim/site/pack/packer/start/dracula.nvim",
@@ -160,6 +153,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/shubhro/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
+  ["goyo.vim"] = {
+    loaded = true,
+    path = "/home/shubhro/.local/share/nvim/site/pack/packer/start/goyo.vim",
+    url = "https://github.com/junegunn/goyo.vim"
   },
   ["gruvbox.nvim"] = {
     loaded = true,
@@ -180,6 +178,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/shubhro/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
+  },
+  ["lsp_lines.nvim"] = {
+    loaded = true,
+    path = "/home/shubhro/.local/share/nvim/site/pack/packer/start/lsp_lines.nvim",
+    url = "https://github.com/ErichDonGubler/lsp_lines.nvim"
   },
   ["lspkind.nvim"] = {
     loaded = true,
@@ -205,6 +208,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/shubhro/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
     url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
+  },
+  ["neodev.nvim"] = {
+    loaded = true,
+    path = "/home/shubhro/.local/share/nvim/site/pack/packer/start/neodev.nvim",
+    url = "https://github.com/folke/neodev.nvim"
   },
   neovim = {
     loaded = true,
@@ -281,6 +289,12 @@ _G.packer_plugins = {
     path = "/home/shubhro/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["texmagic.nvim"] = {
+    config = { "\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rtexmagic\frequire\0" },
+    loaded = true,
+    path = "/home/shubhro/.local/share/nvim/site/pack/packer/start/texmagic.nvim",
+    url = "https://github.com/jakewvincent/texmagic.nvim"
+  },
   ["todo-comments.nvim"] = {
     loaded = true,
     path = "/home/shubhro/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
@@ -315,17 +329,19 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/shubhro/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ",
     url = "https://github.com/hrsh7th/vim-vsnip-integ"
+  },
+  vimtex = {
+    loaded = true,
+    path = "/home/shubhro/.local/share/nvim/site/pack/packer/start/vimtex",
+    url = "https://github.com/lervag/vimtex"
   }
 }
 
 time([[Defining packer_plugins]], false)
-vim.cmd [[augroup packer_load_aucmds]]
-vim.cmd [[au!]]
-  -- Event lazy-loads
-time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au VimEnter * ++once lua require("packer.load")({'dashboard-nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
-time([[Defining lazy-load event autocommands]], false)
-vim.cmd("augroup END")
+-- Config for: texmagic.nvim
+time([[Config for texmagic.nvim]], true)
+try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rtexmagic\frequire\0", "config", "texmagic.nvim")
+time([[Config for texmagic.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

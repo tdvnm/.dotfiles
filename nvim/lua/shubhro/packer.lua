@@ -4,19 +4,6 @@ return require("packer").startup(function(use)
     -- Packer can manage itself
     use("wbthomason/packer.nvim")
 
-    --COLOR THEMES
-    use("folke/tokyonight.nvim")
-    use({ "catppuccin/nvim", as = "catppuccin" })
-    use("nyoom-engineering/oxocarbon.nvim")
-    use("Mofiqul/dracula.nvim")
-    -- use("sainnhe/gruvbox-material")
-    use("FrenzyExists/aquarium-vim")
-    -- use("arcticicestudio/nord-vim")
-    use("rose-pine/neovim")
-    use("ellisonleao/gruvbox.nvim")
-    use("NTBBloodbath/sweetie.nvim")
-    -- use({ "kabouzeid/nvim-jellybeans", requires = "rktjmp/lush.nvim" })
-
 
     -- REQUIRED
     use("github/copilot.vim")
@@ -46,6 +33,13 @@ return require("packer").startup(function(use)
     })
     use("onsails/lspkind.nvim")
 
+    -- IDE STUFF
+    use("p00f/clangd_extensions.nvim")
+    use("mfussenegger/nvim-dap")
+    use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+    use("folke/neodev.nvim")
+    use("ErichDonGubler/lsp_lines.nvim")
+
     -- GIT PLUGINS
     use("lewis6991/gitsigns.nvim")
     use("tpope/vim-fugitive")
@@ -74,23 +68,21 @@ return require("packer").startup(function(use)
     -- MOTIONS PLUGINS
     -- use "justinmk/vim-sneak"
     use 'ggandor/lightspeed.nvim'
+    -- use("ggandor/leap.nvim")
 
 
-    -- MISCELLANIOUS PLUGINS
+    -- FUN PLUGINS
     use("numtostr/FTerm.nvim")
     use("nvim-lualine/lualine.nvim")
+    -- use("nvimdev/galaxyline.nvim")
     use("jiangmiao/auto-pairs")
     use("mbbill/undotree")
-    use({
-        "glepnir/dashboard-nvim",
-        event = "VimEnter",
-        requires = { "nvim-tree/nvim-web-devicons" },
-    })
-    use({
-        "folke/todo-comments.nvim",
-        requires = "nvim-lua/plenary.nvim",
-    })
-
+    -- use({
+    --     "glepnir/dashboard-nvim",
+    --     event = "VimEnter",
+    --     requires = { "nvim-tree/nvim-web-devicons" },
+    -- })
+    use("folke/todo-comments.nvim")
 
     use("Eandrju/cellular-automaton.nvim")
     -- use "lukas-reineke/indent-blankline.nvim"
@@ -106,16 +98,36 @@ return require("packer").startup(function(use)
     -- web plugins
     use("brenoprata10/nvim-highlight-colors")
 
-    -- CUSTOMIZATIONS
-    use('hrsh7th/vim-vsnip')
-    use('hrsh7th/vim-vsnip-integ')
+    -- SNIPPETS
+    use("hrsh7th/vim-vsnip")
+    use("hrsh7th/vim-vsnip-integ")
+    -- use("SirVer/ultisnips")
 
-    use('nvim-tree/nvim-web-devicons')
 
+    use("nvim-tree/nvim-web-devicons")
 
-    -- IDE STUFF
-    use("p00f/clangd_extensions.nvim")
+    -- writing
+    use("lervag/vimtex")
+    use({
+        'jakewvincent/texmagic.nvim',
+        config = function()
+            require('texmagic').setup({
+                -- Config goes here; leave blank for defaults
+            })
+        end
+    })
+    use("junegunn/goyo.vim")
 
-    use("mfussenegger/nvim-dap")
-    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+    --COLOR THEMES
+    use("folke/tokyonight.nvim")
+    use({ "catppuccin/nvim", as = "catppuccin" })
+    use("nyoom-engineering/oxocarbon.nvim")
+    use("Mofiqul/dracula.nvim")
+    -- use("sainnhe/gruvbox-material")
+    use("FrenzyExists/aquarium-vim")
+    -- use("arcticicestudio/nord-vim")
+    use("rose-pine/neovim")
+    use("ellisonleao/gruvbox.nvim")
+    use("NTBBloodbath/sweetie.nvim")
+    -- use({ "kabouzeid/nvim-jellybeans", requires = "rktjmp/lush.nvim" })
 end)
