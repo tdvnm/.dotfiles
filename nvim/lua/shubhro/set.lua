@@ -1,3 +1,17 @@
+-- vim.cmd([[
+--     augroup RosepineDawnColorscheme
+--     autocmd!
+--     autocmd FileType tex colorscheme rose-pine-dawn
+--     augroup END
+-- ]])
+--
+-- vim.cmd [[
+-- augroup AutoSaveTeX
+--   autocmd!
+--   autocmd TextChanged,TextChangedI *.tex silent! write
+-- augroup END
+-- ]]
+
 vim.cmd([[
     augroup highlight_yank
     autocmd!
@@ -40,12 +54,11 @@ set.termguicolors = true
 set.scrolloff = 12
 set.signcolumn = "yes"
 
-set.mouse =
-
-    set.isfname:append("@-@")
+set.isfname:append("@-@")
 set.updatetime = 50
 
 -- vim.opt.colorcolumn = "81" -- set the color column to 81
 -- vim.cmd [[highlight ColorColumn ctermbg=darkgrey guibg=darkgrey alpha=50]] -- highlight the color column
 
 -- vim.cmd('highlight ColorColumn ctermbg=none guibg=#044949')
+set.clipboard:append("unnamedplus")
