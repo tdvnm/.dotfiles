@@ -38,7 +38,7 @@ local applyConfig = function()
     -- ]])
 
     -- Set sign column width
-    vim.wo.signcolumn = "yes:2"
+    vim.wo.signcolumn = "yes:1"
 end
 
 -- Apply the configuration

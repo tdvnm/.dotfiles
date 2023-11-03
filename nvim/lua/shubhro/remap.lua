@@ -78,4 +78,4 @@ remap("n", "<C-left>", ":horizontal resize -5<cr>")
 remap("n", "<C-right>", ":horizontal resize +5<cr>")
 
 -- MACROS
-remap("n", "@x", "0cisxjj")
+-- remap("n", "@x", "0cisxjj")

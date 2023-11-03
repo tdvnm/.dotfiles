@@ -21,15 +21,15 @@ require("telescope").setup({
         selection_caret = " ",
         layout_strategy = "horizontal",
         layout_config = {
-            preview_width = 0.6, -- Adjust the preview window width
-            width = 0.72,        -- Adjust the results width
+            preview_width = 0.7, -- Adjust the preview window width
+            width = 0.80,        -- Adjust the results width
         },
     },
     -- EXTENSIONS
     extensions = {
         file_browser = {
             add_dirs = true,
-            hidden = true,
+            hidden = false,
             initial_mode = "insert",
             -- disables netrw and use telescope-file-browser in its place
             hijack_netrw = true,

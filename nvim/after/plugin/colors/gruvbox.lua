@@ -48,7 +48,7 @@ require("gruvbox").setup({
     -- overrides = {
     --     SignColumn = { bg = "#070b2116" }
     -- },
-    dim_inactive = true,
+    dim_inactive = false,
     transparent_mode = true,
 })
 
