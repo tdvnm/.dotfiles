@@ -18,4 +18,4 @@
 - [ ] save sessions after a reboot
 
 ## bash
-- [ ] git push when config files are changed
+- [x] git push when config files are changed
