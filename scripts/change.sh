@@ -1,34 +1,37 @@
 #!/bin/bash
 
-if [ $1 = '1' ]; then
+if [ $1 = 'nv' ]; then
+    echo "nvim"
+    echo "you wanna continue "
+
     cp ~/.config/nvim/* ~/config/nvim/
     echo "content copied"
     echo "   "
     cd ~/config/
     git.sh
 
-elif [ $1 = '2' ]; then
+elif [ $1 = 'scr' ]; then
     cp -r ~/dev/scripts/* ~/config/scripts/
     echo "content copied"
     echo "   "
     cd ~/config/
     git.sh
 
-elif [ $1 = '3' ]; then 
+elif [ $1 = 'fsh' ]; then 
     cp ~/.config/fish/config.fish ~/config/fish/config.fish
     echo "updated config file"
     echo "   "
     cd ~/config/ 
     git.sh
 
-elif [ $1 = '4' ]; then 
+elif [ $1 = 'tmx' ]; then 
     cp -r ~/.tmux.conf ~/.tmux.conf.local ~/.tmux/ ~/config/tmux/
     echo "updated config file"
     echo "   "
     cd ~/config/ 
     git.sh
 
-elif [ $1 = '5' ]; then 
+elif [ $1 = 'kty' ]; then 
     cp ~/.config/kitty/kitty.conf ~/config/kitty/kitty.conf
     echo "updated config file"
     echo "   "
