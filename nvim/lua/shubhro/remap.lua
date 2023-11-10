@@ -2,6 +2,9 @@ local remap = vim.keymap.set
 
 vim.g.mapleader = " "
 
+vim.g.copilot_no_tab_map = true
+vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+
 remap("v", "K", ":m '<-2<CR>gv=gv")
 remap("v", "J", ":m '>+1<CR>gv=gv")
 
@@ -52,12 +55,14 @@ remap("v", "x", '"_x')
 remap("n", ":w", ':w<cr>')
 -- remap("n", ":wa", ':wa<cr>')
 remap("n", ":W", ':w<cr>')
-remap("n", ":q<cr>", ':q<cr>')
-remap("n", ":Q<cr>", ':q<cr>')
+-- remap("n", ":q<cr>", ':q<cr>')
+-- remap("n", ":Q<cr>", ':q<cr>')
 remap("n", ":qa", ':qa<cr>')
+-- remap("n", ":qa!", ':qa!<cr>')
 remap("n", ":Qa", ':qa<cr>')
-remap("n", ":so", ':so')
-remap("n", ":So", ':so')
+remap("n", ":QA", ':qa<cr>')
+-- remap("n", ":so", ':so')
+-- remap("n", ":So", ':so')
 
 -- plugin
 remap("n", "<leader>hc", ":CellularAutomaton make_it_rain<Cr>")

@@ -56,6 +56,8 @@ return require("packer").startup(function(use)
             "MunifTanjim/nui.nvim",
         },
     })
+
+    --TELSCOPE
     use({
         "nvim-telescope/telescope.nvim",
         tag = "0.1.1",
@@ -119,6 +121,7 @@ return require("packer").startup(function(use)
     use("junegunn/goyo.vim")
 
     --COLOR THEMES
+    use("sainttttt/flesh-and-blood")
     use("folke/tokyonight.nvim")
     use({ "catppuccin/nvim", as = "catppuccin" })
     use("nyoom-engineering/oxocarbon.nvim")
