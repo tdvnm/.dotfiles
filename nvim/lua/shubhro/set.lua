@@ -54,6 +54,8 @@ set.termguicolors = true
 set.scrolloff = 12
 set.signcolumn = "yes"
 
+-- set.colorcolumn = 80
+
 set.isfname:append("@-@")
 set.updatetime = 50
 

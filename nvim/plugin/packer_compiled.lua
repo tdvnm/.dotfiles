@@ -144,6 +144,11 @@ _G.packer_plugins = {
     path = "/home/shubhro/.local/share/nvim/site/pack/packer/start/dracula.nvim",
     url = "https://github.com/Mofiqul/dracula.nvim"
   },
+  ["flesh-and-blood"] = {
+    loaded = true,
+    path = "/home/shubhro/.local/share/nvim/site/pack/packer/start/flesh-and-blood",
+    url = "https://github.com/sainttttt/flesh-and-blood"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/shubhro/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -204,6 +209,11 @@ _G.packer_plugins = {
     path = "/home/shubhro/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["neo-tree.nvim"] = {
+    loaded = true,
+    path = "/home/shubhro/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
+    url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
+  },
   ["neodev.nvim"] = {
     loaded = true,
     path = "/home/shubhro/.local/share/nvim/site/pack/packer/start/neodev.nvim",
@@ -213,6 +223,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/shubhro/.local/share/nvim/site/pack/packer/start/neovim",
     url = "https://github.com/rose-pine/neovim"
+  },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/home/shubhro/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -263,11 +278,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/shubhro/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
-  },
-  ["sweetie.nvim"] = {
-    loaded = true,
-    path = "/home/shubhro/.local/share/nvim/site/pack/packer/start/sweetie.nvim",
-    url = "https://github.com/NTBBloodbath/sweetie.nvim"
   },
   ["telescope-file-browser.nvim"] = {
     loaded = true,
