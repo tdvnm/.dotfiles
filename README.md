@@ -13,9 +13,14 @@
 - [ ] better dashboard
 <!-- - [ ] fix fterm, use something else, need it on the side -->
 - [ ] better keybinds (reddit)
+- [ ] use lazy plugin manager
+- [ ] switch to lazy plugin
 
 ## tmux
 - [ ] save sessions after a reboot
 
 ## bash
 - [x] git push when config files are changed
+
+# python
+- [ ] make turtle work

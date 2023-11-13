@@ -4,7 +4,6 @@ return require("packer").startup(function(use)
     -- Packer can manage itself
     use("wbthomason/packer.nvim")
 
-
     -- REQUIRED
     use("github/copilot.vim")
     use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
@@ -79,11 +78,17 @@ return require("packer").startup(function(use)
     -- use("nvimdev/galaxyline.nvim")
     use("jiangmiao/auto-pairs")
     use("mbbill/undotree")
-    use({
-        "glepnir/dashboard-nvim",
-        event = "VimEnter",
-        requires = { "nvim-tree/nvim-web-devicons" },
-    })
+    --
+    use {
+        'nvimdev/dashboard-nvim',
+        event = 'VimEnter',
+        config = function()
+            require('dashboard').setup {
+                -- config
+            }
+        end,
+        requires = { 'nvim-tree/nvim-web-devicons' }
+    }
     use("folke/todo-comments.nvim")
 
     use("Eandrju/cellular-automaton.nvim")
