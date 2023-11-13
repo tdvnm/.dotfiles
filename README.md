@@ -14,7 +14,7 @@
 <!-- - [ ] fix fterm, use something else, need it on the side -->
 - [ ] better keybinds (reddit)
 - [ ] use lazy plugin manager
-- [ ] switch to lazy plugin
+- [x] switch to lazy plugin
 
 ## tmux
 - [ ] save sessions after a reboot
