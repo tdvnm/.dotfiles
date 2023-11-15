@@ -19,7 +19,7 @@ local plugins = { {
         local configs = require("nvim-treesitter.configs")
 
         configs.setup({
-            ensure_installed = { "c", "lua", "javascript", "html" },
+            -- ensure_installed = { "c", "lua", "javascript", "html" },
             sync_install = false,
             highlight = { enable = true },
             indent = { enable = true },
@@ -40,6 +40,14 @@ local plugins = { {
     { 'L3MON4D3/LuaSnip' },
     "onsails/lspkind.nvim",
 
+    -- DASHBOARD
+    -- {
+    --     "startup-nvim/startup.nvim",
+    --     requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+    --     config = function()
+    --         require "startup".setup()
+    --     end
+    -- },
     -- IDE STUFF
     "p00f/clangd_extensions.nvim",
     "mfussenegger/nvim-dap",
@@ -105,8 +113,8 @@ local plugins = { {
     "brenoprata10/nvim-highlight-colors",
 
     -- SNIPPETS
-    "hrsh7th/vim-vsnip",
-    "hrsh7th/vim-vsnip-integ",
+    -- "hrsh7th/vim-vsnip",
+    -- "hrsh7th/vim-vsnip-integ",
     -- use("SirVer/ultisnips")
 
 
@@ -117,7 +125,7 @@ local plugins = { {
     {
         'jakewvincent/texmagic.nvim',
     },
-    "junegunn/goyo.vim",
+    -- "junegunn/goyo.vim",
 
     --COLOR THEMES
     "sainttttt/flesh-and-blood",
