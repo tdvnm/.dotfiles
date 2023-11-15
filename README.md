@@ -1,7 +1,7 @@
 # to do 
 
 ## nvim
-- [ ] have filetype specific keybinds
+- [x] have filetype specific keybinds
 - [ ] make markdown better
     - [ ] side table content thingey (,lt for .tex, but for .md)
 - [x] fix vimtex
@@ -13,7 +13,7 @@
 - [ ] better dashboard
 <!-- - [ ] fix fterm, use something else, need it on the side -->
 - [ ] better keybinds (reddit)
-- [ ] use lazy plugin manager
+- [x] use lazy plugin manager
 - [x] switch to lazy plugin
 
 ## tmux
@@ -23,4 +23,4 @@
 - [x] git push when config files are changed
 
 # python
-- [ ] make turtle work
+- [x] make turtle work
