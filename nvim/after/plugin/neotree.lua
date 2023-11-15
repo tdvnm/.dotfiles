@@ -41,7 +41,7 @@ require("neo-tree").setup({
         git_status = {
             symbols = {
                 -- Change type
-                added = "+",    -- or "✚", but this is redundant info if you use git_status_colors on the name
+                added = "+", -- or "✚", but this is redundant info if you use git_status_colors on the name
                 modified = "~", -- or "", but this is redundant info if you use git_status_colors on the name
                 deleted = "✖", -- this can only be used in the git_status source
                 renamed = "", -- this can only be used in the git_status source
@@ -56,7 +56,7 @@ require("neo-tree").setup({
     },
     window = {
         position = "right",
-        width = 25,
+        width = 30,
         mapping_options = {
             noremap = true,
             nowait = true,

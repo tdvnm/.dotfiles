@@ -56,13 +56,13 @@ remap("n", ":w", ':w<cr>')
 -- remap("n", ":wa", ':wa<cr>')
 remap("n", ":W", ':w<cr>')
 -- remap("n", ":q<cr>", ':q<cr>')
--- remap("n", ":Q<cr>", ':q<cr>')
+remap("n", ":Q<cr>", ':q<cr>')
 remap("n", ":qa", ':qa<cr>')
--- remap("n", ":qa!", ':qa!<cr>')
+remap("n", ":qa!", ':qa!<cr>')
 remap("n", ":Qa", ':qa<cr>')
 remap("n", ":QA", ':qa<cr>')
--- remap("n", ":so", ':so')
--- remap("n", ":So", ':so')
+remap("n", ":so", ':so')
+remap("n", ":So", ':so')
 
 -- plugin
 remap("n", "<leader>hc", ":CellularAutomaton make_it_rain<Cr>")
@@ -83,4 +83,6 @@ remap("n", "<C-left>", ":horizontal resize -5<cr>")
 remap("n", "<C-right>", ":horizontal resize +5<cr>")
 
 -- MACROS
--- remap("n", "@x", "0cisxjj")
+
+-- EXPERIMENTAL
+-- remap("n", ":please", "<A-q>treeeCR>")
