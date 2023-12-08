@@ -7,9 +7,9 @@ vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true,
 
 remap("v", "K", ":m '<-2<CR>gv=gv")
 remap("v", "J", ":m '>+1<CR>gv=gv")
-
 remap("i", "jj", "<Esc>")
 
+-- NORMAL MODE
 -- select all
 remap("n", "<C-a>", "ggVG")
 
@@ -56,21 +56,24 @@ remap("n", ":w", ':w<cr>')
 -- remap("n", ":wa", ':wa<cr>')
 remap("n", ":W", ':w<cr>')
 -- remap("n", ":q<cr>", ':q<cr>')
-remap("n", ":Q<cr>", ':q<cr>')
-remap("n", ":qa", ':qa<cr>')
+-- remap("n", ":Q", ':q<cr>')
 remap("n", ":qa!", ':qa!<cr>')
 remap("n", ":Qa", ':qa<cr>')
 remap("n", ":QA", ':qa<cr>')
-remap("n", ":so", ':so')
-remap("n", ":So", ':so')
+remap("n", ":so", ':so<Cr>')
+remap("n", ":So", ':so<Cr>')
 
 -- plugin
 remap("n", "<leader>hc", ":CellularAutomaton make_it_rain<Cr>")
 
--- show / hide numbers
+-- show / hide relative numbers
 remap('n', '<leader>sn', ':set invnumber<CR>', { noremap = true, silent = true })
 remap('n', '<leader>srn', ':set invnumber <Cr> :set invrelativenumber<CR>',
     { noremap = true, silent = true })
+
+-- signcolumn toggle
+remap("n", "<leader>scb", ":set signcolumn=yes<Cr>")
+remap("n", "<leader>scn", ":set signcolumn=no<Cr>")
 
 
 -- replace all occurances of the current word under the cursor
@@ -86,3 +89,10 @@ remap("n", "<C-right>", ":horizontal resize +5<cr>")
 
 -- EXPERIMENTAL
 -- remap("n", ":please", "<A-q>treeeCR>")
+-- remap("n", "i", ":highlight CursorLine guibg=bg guifg=bg<CR>i")
+-- remap("n", "C", ":highlight CursorLine guibg=bg guifg=bg<CR>C")
+-- remap("n", "A", ":highlight CursorLine guibg=bg guifg=bg<CR>A")
+-- remap("n", "I", ":highlight CursorLine guibg=bg guifg=bg<CR>I")
+-- remap("n", "a", ":highlight CursorLine guibg=bg guifg=bg<CR>a")
+
+-- remap("i", "<esc>", "<esc>:highlight CursorLine guibg=bg guifg=#ffffff<Cr>")

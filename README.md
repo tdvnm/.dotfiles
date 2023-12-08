@@ -1,4 +1,4 @@
-# to do 
+# TODO
 
 ## nvim
 - [x] have filetype specific keybinds

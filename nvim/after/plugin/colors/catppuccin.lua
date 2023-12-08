@@ -5,13 +5,14 @@ require("catppuccin").setup({
         light = "mocha",
         dark = "mocha",
     },
+
     transparent_background = true,
     show_end_of_buffer = false, -- show the '~' characters after the end of buffers
     term_colors = false,
     dim_inactive = {
-        enabled = true,
+        enabled = false,
         shade = "dark",
-        percentage = 0.45,
+        percentage = 0.95,
     },
     no_italic = false, -- Force no italic
     no_bold = false,   -- Force no bold

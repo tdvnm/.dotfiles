@@ -4,6 +4,7 @@ vim.cmd('filetype plugin indent on')
 -- Enable syntax highlighting
 vim.cmd('syntax enable')
 
+
 -- Set the compiler method for VimTeX
 vim.g.vimtex_compiler_method = 'latexmk'
 
