@@ -1,6 +1,4 @@
 function fish_greeting
-    fm6000
-    fortune -a
 end
 
 alias sa "sudo apt"
@@ -14,7 +12,7 @@ alias nvh "nvim ."
 alias ff "firefox"
 
 # git alias
-alias gitAll "git.sh"
+alias gitall "git.sh"
 
 # directory aliases
 alias dev "cd ~/dev"
@@ -49,3 +47,7 @@ set -x  PATH /usr/local/texlive/2023/bin/x86_64-linux:$PATH
 
 # Bash scripts
 set PATH $PATH /home/shubhro/dev/scripts/
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
