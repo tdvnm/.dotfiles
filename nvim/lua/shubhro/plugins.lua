@@ -1,4 +1,4 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
         "git",
@@ -48,9 +48,12 @@ local plugins = { {
     --         require "startup".setup()
     --     end
     -- },
+    -- TODO
     -- IDE STUFF
     "p00f/clangd_extensions.nvim",
     "mfussenegger/nvim-dap",
+
+    'edluffy/hologram.nvim',
 
     "folke/neodev.nvim",
     "ErichDonGubler/lsp_lines.nvim",
@@ -66,10 +69,10 @@ local plugins = { {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v3.x",
         dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-            "MunifTanjim/nui.nvim",
             -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+            -- "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "nvim-lua/plenary.nvim",
+            "MunifTanjim/nui.nvim",
         }
     },
 
@@ -85,13 +88,14 @@ local plugins = { {
 
     -- MOTIONS PLUGINS
     -- use "justinmk/vim-sneak"
-    'ggandor/lightspeed.nvim',
+    "ggandor/lightspeed.nvim",
     -- use("ggandor/leap.nvim")
 
 
     -- FUN PLUGINS
     "numtostr/FTerm.nvim",
     "nvim-lualine/lualine.nvim",
+
     -- use("nvimdev/galaxyline.nvim")
     "jiangmiao/auto-pairs",
     "mbbill/undotree",
@@ -113,18 +117,17 @@ local plugins = { {
     "brenoprata10/nvim-highlight-colors",
 
     -- SNIPPETS
-    -- "hrsh7th/vim-vsnip",
-    -- "hrsh7th/vim-vsnip-integ",
-    -- use("SirVer/ultisnips")
+    "hrsh7th/vim-vsnip",
+    "hrsh7th/vim-vsnip-integ",
+    -- "SirVer/ultisnips",
+    "honza/vim-snippets",
 
 
-    "nvim-tree/nvim-web-devicons",
+    -- "nvim-tree/nvim-web-devicons",
 
     -- writing
     "lervag/vimtex",
-    {
-        'jakewvincent/texmagic.nvim',
-    },
+    "jakewvincent/texmagic.nvim",
     -- "junegunn/goyo.vim",
 
     --COLOR THEMES
@@ -139,7 +142,23 @@ local plugins = { {
     "rose-pine/neovim",
     "ellisonleao/gruvbox.nvim",
     -- use("NTBBloodbath/sweetie.nvim")
+    --
     -- use({ "kabouzeid/nvim-jellybeans", requires = "rktjmp/lush.nvim" })
+    -- {
+    --     "folke/noice.nvim",
+    --     event = "VeryLazy",
+    --     opts = {
+    --         -- add any options here
+    --     },
+    --     dependencies = {
+    --         -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+    --         "MunifTanjim/nui.nvim",
+    --         -- OPTIONAL:
+    --         --   `nvim-notify` is only needed, if you want to use the notification view.
+    --         --   If not available, we use `mini` as the fallback
+    --         "rcarriga/nvim-notify",
+    --     }
+    -- 'anuvyklack/pretty-fold.nvim' -- }
 }
 
 local opts = {}

@@ -17,6 +17,7 @@ lsp.ensure_installed({
     "tsserver",
     "clangd",
 })
+
 -- Fix Undefined global 'vim'
 lsp.configure("lua-language-server", {
     Lua = {

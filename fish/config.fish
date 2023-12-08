@@ -13,6 +13,9 @@ alias nv "nvim"
 alias nvh "nvim ."
 alias ff "firefox"
 
+# git alias
+alias gitAll "git.sh"
+
 # directory aliases
 alias dev "cd ~/dev"
 alias cpp "cd ~/dev/cpp/learncpp/"

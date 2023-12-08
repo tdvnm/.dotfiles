@@ -11,14 +11,17 @@
 --   autocmd TextChanged,TextChangedI *.tex silent! write
 -- augroup END
 -- ]]
+-- autocmd VimEnter * highlight CursorLine guibg=bg guifg=#ffffff
+-- autocmd VimEnter * highlight LineNr guibg=none guifg=#83a598
 
 vim.cmd([[
     augroup highlight_yank
     autocmd!
 
     au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Visual", timeout=200})
-    autocmd VimEnter * highlight LineNr guibg=none guifg=#83a598
     autocmd VimEnter * highlight NonText guifg=#665c53
+
+    autocmd VimEnter * set signcolumn=no
 
     augroup END
 ]])
@@ -43,16 +46,16 @@ set.wrap = true
 
 set.swapfile = false
 set.backup = false
-set.undodir = os.getenv("HOME") .. "/.local/undodir"
 set.undofile = true
+set.undodir = os.getenv("HOME") .. "/.local/undodir"
 
 set.hlsearch = false
 set.incsearch = true
 
 set.termguicolors = true
 
-set.scrolloff = 12
-set.signcolumn = "yes"
+set.scrolloff = 14
+set.signcolumn = "no"
 
 -- set.colorcolumn = 80
 
@@ -64,3 +67,22 @@ set.updatetime = 50
 
 -- vim.cmd('highlight ColorColumn ctermbg=none guibg=#044949')
 set.clipboard:append("unnamedplus")
+-- set.cursorline = true
+--
+
+
+-- -- Disable the toolbar
+-- vim.cmd('set guioptions-=T')
+
+-- -- Disable other unnecessary elements
+-- vim.cmd('set guioptions-=m')
+-- vim.cmd('set guioptions-=r')
+-- vim.cmd('set guioptions-=L')
+
+-- -- Centered text
+-- vim.api.nvim_exec([[
+--   autocmd VimEnter * call append(0, repeat([''], (winheight(0) - 1) / 2) + {'     I love coding'} + repeat([''], winheight(0) / 2 - 1))
+-- ]], false)
+
+-- -- Map <leader> to clear the screen and show the message
+-- vim.api.nvim_set_keymap('n', '<leader>', ':redraw!<CR>', { noremap = true, silent = true })
