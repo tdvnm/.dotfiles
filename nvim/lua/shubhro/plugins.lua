@@ -50,17 +50,17 @@ local plugins = { {
     -- },
     -- TODO
     -- IDE STUFF
-    "p00f/clangd_extensions.nvim",
-    "mfussenegger/nvim-dap",
+    -- "p00f/clangd_extensions.nvim",
+    -- "mfussenegger/nvim-dap",
 
-    'edluffy/hologram.nvim',
+    -- 'edluffy/hologram.nvim',
 
-    "folke/neodev.nvim",
+    -- "folke/neodev.nvim",
     "ErichDonGubler/lsp_lines.nvim",
 
     -- GIT PLUGINS
     "lewis6991/gitsigns.nvim",
-    "tpope/vim-fugitive",
+    -- "tpope/vim-fugitive",
 
     -- NAVIGATION PLUGINS
     "theprimeagen/harpoon",
@@ -69,7 +69,7 @@ local plugins = { {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v3.x",
         dependencies = {
-            -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+            "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
             -- "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
             "nvim-lua/plenary.nvim",
             "MunifTanjim/nui.nvim",
@@ -83,7 +83,7 @@ local plugins = { {
         -- or                              , branch = '0.1.x',
         dependencies = { 'nvim-lua/plenary.nvim' },
     },
-    "nvim-telescope/telescope-file-browser.nvim",
+    -- "nvim-telescope/telescope-file-browser.nvim",
 
 
     -- MOTIONS PLUGINS
@@ -94,13 +94,13 @@ local plugins = { {
 
     -- FUN PLUGINS
     "numtostr/FTerm.nvim",
-    "nvim-lualine/lualine.nvim",
+    -- "nvim-lualine/lualine.nvim",
 
     -- use("nvimdev/galaxyline.nvim")
     "jiangmiao/auto-pairs",
     "mbbill/undotree",
     --
-    "folke/todo-comments.nvim",
+    -- "folke/todo-comments.nvim",
 
     "Eandrju/cellular-automaton.nvim",
     -- use "lukas-reineke/indent-blankline.nvim"
@@ -141,6 +141,12 @@ local plugins = { {
     -- use("arcticicestudio/nord-vim")
     "rose-pine/neovim",
     "ellisonleao/gruvbox.nvim",
+    -- "lighthaus-theme/vim-lighthaus",
+    "ThePrimeagen/vim-be-good",
+    -- set.cursorline = true
+    --
+
+
     -- use("NTBBloodbath/sweetie.nvim")
     --
     -- use({ "kabouzeid/nvim-jellybeans", requires = "rktjmp/lush.nvim" })

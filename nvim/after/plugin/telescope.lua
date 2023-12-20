@@ -9,16 +9,16 @@ vim.keymap.set("n", "<leader>sw", function()
     builtin.grep_string({ search = vim.fn.input("Search Word: ") })
 end)
 
-vim.api.nvim_set_keymap("n", "<A-r>", ":Telescope file_browser<Cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>fb", ":Telescope file_browser path=%:p:h select_buffer=true<Cr>",
-    { noremap = true })
+-- vim.api.nvim_set_keymap("n", "<A-r>", ":Telescope file_browser<Cr>", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "<leader>fb", ":Telescope file_browser path=%:p:h select_buffer=true<Cr>",
+-- { noremap = true })
 
 require("telescope").setup({
     -- defaults = {
     prompt_prefix = "  ",
     defaults = {
         prompt_prefix = "  ",
-        selection_caret = " ",
+        selection_caret = "󰫢 ",
         layout_strategy = "horizontal",
         layout_config = {
             preview_width = 0.7, -- Adjust the preview window width

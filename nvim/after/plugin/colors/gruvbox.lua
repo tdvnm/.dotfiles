@@ -1,5 +1,3 @@
--- setup must be called before loading the colorscheme
--- Default options:
 require("gruvbox").setup({
     undercurl = false,
     underline = false,
@@ -13,13 +11,13 @@ require("gruvbox").setup({
     inverse = true,    -- invert background for search, diffs, statuslines and errors
     contrast = "hard", -- can be "hard", "soft" or empty string
     palette_overrides = {
-        dark0_hard = "#494f54",
-        dark0 = "#494f54",
-        dark0_soft = "#494f54",
+        dark0_hard = "#626369",
+        dark0 = "#626369",
+        dark0_soft = "#626369",
         dark1 = "#23282b",
-        dark2 = "#494f54",
-        dark3 = "#494f54",
-        dark4 = "#494f54",
+        dark2 = "#626369",
+        dark3 = "#626369",
+        dark4 = "#626369",
 
         bright_red = "#fb4934",
         bright_green = "#1fcc81",
