@@ -31,7 +31,7 @@ vim.cmd([[
 local set = vim.opt
 -- set.nu = true
 -- set.relativenumber = true
--- vim.api.nvim_command('highlight NonText ctermfg=cyan guifg=cyan')
+vim.api.nvim_command('highlight NonText ctermfg=cyan guifg=gray')
 
 -- set.cursorline = true
 set.tabstop = 4
@@ -42,7 +42,7 @@ set.expandtab = true
 set.smartindent = true
 set.guicursor = ""
 
-set.wrap = true
+set.wrap = false
 
 set.swapfile = false
 set.backup = false
@@ -54,7 +54,7 @@ set.incsearch = true
 
 set.termguicolors = true
 
-set.scrolloff = 14
+set.scrolloff = 12
 set.signcolumn = "no"
 
 -- set.colorcolumn = 80
@@ -69,20 +69,3 @@ set.updatetime = 50
 set.clipboard:append("unnamedplus")
 -- set.cursorline = true
 --
-
-
--- -- Disable the toolbar
--- vim.cmd('set guioptions-=T')
-
--- -- Disable other unnecessary elements
--- vim.cmd('set guioptions-=m')
--- vim.cmd('set guioptions-=r')
--- vim.cmd('set guioptions-=L')
-
--- -- Centered text
--- vim.api.nvim_exec([[
---   autocmd VimEnter * call append(0, repeat([''], (winheight(0) - 1) / 2) + {'     I love coding'} + repeat([''], winheight(0) / 2 - 1))
--- ]], false)
-
--- -- Map <leader> to clear the screen and show the message
--- vim.api.nvim_set_keymap('n', '<leader>', ':redraw!<CR>', { noremap = true, silent = true })

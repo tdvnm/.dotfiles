@@ -4,7 +4,7 @@ vim.keymap.set("n", "<A-f>", vim.cmd.NeoTreeFocus)
 require("neo-tree").setup({
     default_component_configs = {
         container = {
-            enable_character_fade = true,
+            enable_character_fade = false,
         },
         indent = {
             indent_size = 2,
@@ -21,9 +21,9 @@ require("neo-tree").setup({
             expander_highlight = "NeoTreeExpander",
         },
         icon = {
-            -- folder_closed = " ",
-            -- folder_open = "",
-            -- folder_empty = "",
+            folder_closed = " ",
+            folder_open = "",
+            folder_empty = "",
             -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
             -- then these will never be used.
             default = "*",

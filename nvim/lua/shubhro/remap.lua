@@ -28,7 +28,7 @@ remap("n", "L", "O<Esc>j")
 
 remap("n", "<leader>ts", ':lua require("nvim-highlight-colors").toggle()<Cr>')
 
-remap("n", "=ap", ":lua vim.lsp.buf.format()<Cr>")
+-- remap("n", "=ap", ":lua vim.lsp.buf.format()<Cr>")
 
 -- remap for quotes
 remap("n", "ciq", 'ci"')

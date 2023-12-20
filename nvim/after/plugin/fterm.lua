@@ -8,8 +8,10 @@
 require("FTerm").setup({
     border = "rounded",
     dimensions = {
-        height = 0.75,
-        width = 0.75,
+        height = 1,
+        width = 0.50,
+        x = 0.95,
+        y = 0.15
     },
 })
 
