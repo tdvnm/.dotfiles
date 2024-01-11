@@ -31,9 +31,8 @@ vim.cmd([[
 local set = vim.opt
 -- set.nu = true
 -- set.relativenumber = true
-vim.api.nvim_command('highlight NonText ctermfg=cyan guifg=gray')
 
--- set.cursorline = true
+set.cursorline = true
 set.tabstop = 4
 set.softtabstop = 4
 set.shiftwidth = 4
@@ -54,10 +53,10 @@ set.incsearch = true
 
 set.termguicolors = true
 
-set.scrolloff = 12
-set.signcolumn = "no"
+set.scrolloff = 20
+set.signcolumn = "yes"
 
--- set.colorcolumn = 80
+set.colorcolumn = "80"
 
 set.isfname:append("@-@")
 set.updatetime = 50

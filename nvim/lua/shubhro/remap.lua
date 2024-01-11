@@ -72,7 +72,7 @@ remap('n', '<leader>srn', ':set invnumber <Cr> :set invrelativenumber<CR>',
     { noremap = true, silent = true })
 
 -- signcolumn toggle
-remap("n", "<leader>scb", ":set signcolumn=yes<Cr>")
+remap("n", "<leader>scy", ":set signcolumn=yes<Cr>")
 remap("n", "<leader>scn", ":set signcolumn=no<Cr>")
 
 
