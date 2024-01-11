@@ -61,9 +61,10 @@ local plugins = { {
     -- GIT PLUGINS
     "lewis6991/gitsigns.nvim",
     -- "tpope/vim-fugitive",
+    --
 
     -- NAVIGATION PLUGINS
-    "theprimeagen/harpoon",
+    -- "theprimeagen/harpoon",
     -- use({ "romgrk/barbar.nvim", requires = "nvim-web-devicons" })
     {
         "nvim-neo-tree/neo-tree.nvim",
@@ -144,7 +145,7 @@ local plugins = { {
     -- "lighthaus-theme/vim-lighthaus",
     "ThePrimeagen/vim-be-good",
     -- set.cursorline = true
-    --
+    -- "xiyaowong/transparent.nvim",
 
 
     -- use("NTBBloodbath/sweetie.nvim")
