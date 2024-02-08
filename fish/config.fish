@@ -1,15 +1,14 @@
 function fish_greeting
 end
 
-alias sa "sudo apt"
+#vim mode
+fish_vi_key_bindings
 
 # shortcuts
 alias clr "clear"
 alias md "mkdir"
 alias rf "rm -rf"
 alias nv "nvim"
-alias nvh "nvim ."
-alias ff "firefox"
 
 # git alias
 alias gitall "git.sh"
@@ -22,8 +21,6 @@ alias mat "cd ~/math"
 
 # config aliases
 alias conf "cd ~/.config/"
-alias nvconf "nvim ~/.config/nvim"
-alias fishconf "nvim ~/.config/fish/"
 
 # c++ aliases
 alias cum "g++ -std=c++17 "
