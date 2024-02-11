@@ -2,18 +2,13 @@ local remap = vim.keymap.set
 
 vim.g.mapleader = " "
 
--- plugin
-remap("n", "<leader>hc", ":CellularAutomaton make_it_rain<Cr>")
-vim.g.copilot_no_tab_map = true
-vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
-
 remap("v", "K", ":m '<-2<CR>gv=gv")
 remap("v", "J", ":m '>+1<CR>gv=gv")
 remap("i", "jj", "<Esc>")
 
 -- NORMAL MODE
-remap("n", "<C-k>", "15kzz")
-remap("n", "<C-j>", "15jzz")
+remap("n", "<C-k>", "<C-u>zz")
+remap("n", "<C-j>", "<C-d>zz")
 remap("n", "n", "nzzzv")
 remap("n", "N", "Nzzzv")
 
@@ -26,8 +21,8 @@ remap("n", "H", "0i<Cr><Esc>k")
 remap("n", "L", "O<Esc>j")
 
 -- remap for quotes
-remap("n", "ciq", "ci'")
-remap("n", "ciQ", 'ci"')
+remap("n", "ciq", 'ci"')
+remap("n", "ciQ", "ci'")
 remap("n", "cinq", '0f";;lci"')
 remap("n", "viq", 'vi"')
 remap("n", "viQ", "vi'")
@@ -39,7 +34,7 @@ remap("n", "cic", "0f{lci{")
 remap("n", "cis", "ci[")
 
 -- not copy when deleting
-remap("x", "<leader>p>", "\"_dP")
+remap("x", "<leader>p>", '"_dP')
 remap("v", "x", '"_x')
 
 -- lazy
@@ -54,11 +49,9 @@ remap("n", ":QA", ":qa<cr>")
 remap("n", ":so", ":so<Cr>")
 remap("n", ":So", ":so<Cr>")
 
-
 -- show / hide relative numbers
 remap("n", "<leader>sn", ":set invnumber<CR>", { noremap = true, silent = true })
-remap("n", "<leader>srn", ":set invnumber <Cr> :set invrelativenumber<CR>",
-    { noremap = true, silent = true })
+remap("n", "<leader>srn", ":set invnumber <Cr> :set invrelativenumber<CR>", { noremap = true, silent = true })
 
 -- signcolumn toggle
 remap("n", "<leader>scy", ":set signcolumn=yes<Cr>")

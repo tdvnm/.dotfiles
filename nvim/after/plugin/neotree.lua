@@ -14,7 +14,7 @@ require("neo-tree").setup({
             ["l"] = "open",
             ["<esc>"] = "cancel", -- close preview or floating neo-tree window
             ["h"] = "close_node",
-            ["a"] = { 
+            ["a"] = {
                 "add",
                 config = {
                     show_path = "relative" -- "none", "relative", "absolute"
