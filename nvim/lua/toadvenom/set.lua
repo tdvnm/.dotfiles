@@ -36,5 +36,10 @@ set.splitbelow = true
 set.splitright = true
 
 -- set.cursorline = true
-
 set.virtualedit = "block"
+
+set.fillchars = { eob = "~" }
+vim.cmd([[:hi NonText guifg=bg]])
+
+-- highlight on yank
+vim.cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = false}")

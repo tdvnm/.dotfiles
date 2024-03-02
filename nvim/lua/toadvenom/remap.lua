@@ -6,6 +6,9 @@ remap("v", "K", ":m '<-2<CR>gv=gv")
 remap("v", "J", ":m '>+1<CR>gv=gv")
 remap("i", "jj", "<Esc>")
 
+-- clear buffer
+vim.keymap.set("n", "<leader>bo", "<cmd>%bd|e#<cr>", { desc = "Close all buffers but the current one" })
+
 -- NORMAL MODE
 remap("n", "<C-k>", "<C-u>zz")
 remap("n", "<C-j>", "<C-d>zz")
@@ -36,18 +39,6 @@ remap("n", "cis", "ci[")
 -- not copy when deleting
 remap("x", "<leader>p>", '"_dP')
 remap("v", "x", '"_x')
-
--- lazy
-remap("n", ":w", ":w<cr>")
--- remap("n", ":wa", ":wa<cr>")
-remap("n", ":W", ":w<cr>")
--- remap("n", ":q<cr>", ":q<cr>")
--- remap("n", ":Q", ":q<cr>")
-remap("n", ":qa!", ":qa!<cr>")
-remap("n", ":Qa", ":qa<cr>")
-remap("n", ":QA", ":qa<cr>")
-remap("n", ":so", ":so<Cr>")
-remap("n", ":So", ":so<Cr>")
 
 -- show / hide relative numbers
 remap("n", "<leader>sn", ":set invnumber<CR>", { noremap = true, silent = true })

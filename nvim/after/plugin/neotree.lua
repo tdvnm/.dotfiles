@@ -4,7 +4,7 @@ vim.keymap.set("n", "<A-f>", ":Neotree focus<cr>")
 require("neo-tree").setup({
     window = {
         position = "right",
-        width = 32 ,
+        width = 32,
         mapping_options = {
             noremap = true,
             nowait = true,
@@ -17,8 +17,8 @@ require("neo-tree").setup({
             ["a"] = {
                 "add",
                 config = {
-                    show_path = "relative" -- "none", "relative", "absolute"
-                }
+                    show_path = "relative", -- "none", "relative", "absolute"
+                },
             },
             ["L"] = "open_nofocus",
         },
@@ -34,5 +34,20 @@ require("neo-tree").setup({
                 vim.cmd([[Neotree focus]])
             end)
         end,
+    },
+    git_status = {
+        symbols = {
+            -- Change type
+            added = "+", -- or "✚", but this is redundant info if you use git_status_colors on the name
+            modified = "M", -- or "", but this is redundant info if you use git_status_colors on the name
+            deleted = "D", -- this can only be used in the git_status source
+            renamed = "R", -- this can only be used in the git_status source
+            -- Status type
+            untracked = "UT",
+            ignored = "I",
+            unstaged = "US",
+            staged = "S",
+            conflict = "C",
+        },
     },
 })
