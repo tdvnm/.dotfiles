@@ -1,19 +1,21 @@
 # TODO
 
+## os
+- [ ] remove double (user) login 
+
 ## nvim
-- [x] have filetype specific keybinds
+- [ ] have filetype specific keybinds
 - [ ] make markdown better
     - [ ] side table content thingey (,lt for .tex, but for .md)
-- [x] fix vimtex
+- [ ] fix vimtex
     - [ ] add symbols to latex
-- [x] nvim-dap
+- [ ] nvim-dap
     - [ ] nvim-dap-ui  
 - [x] advanced harpoon
 - [ ] configure ultisnips
-- [ ] better dashboard
-<!-- - [ ] fix fterm, use something else, need it on the side -->
-- [ ] better keybinds (reddit)
-- [x] use lazy plugin manager
+- [x] better dashboard
+- [x] fix fterm, need it on the side
+- [x] better keybinds (reddit)
 - [x] switch to lazy plugin
 
 ## tmux
@@ -22,5 +24,10 @@
 ## bash
 - [x] git push when config files are changed
 
-# python
-- [x] make turtle work
+## rofi
+- [ ] runcommands from rofi
+- [ ] change font to sf mono
+
+## waybar
+- [ ] make custom modules to run shell commands
+- [ ] make better keybinds

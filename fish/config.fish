@@ -1,14 +1,24 @@
 function fish_greeting
+    ls
 end
 
-#vim mode
+# vim mode
 fish_vi_key_bindings
+
+# autocomplete
+function fish_user_key_bindings
+    for mode in insert default visual
+        bind -M $mode \cF forward-char
+    end
+end
 
 # shortcuts
 alias clr "clear"
 alias md "mkdir"
 alias rf "rm -rf"
 alias nv "nvim"
+
+alias nvconf "nv ~/.config/nvim/"
 
 # git alias
 alias gitall "git.sh"
@@ -18,9 +28,6 @@ alias dev "cd ~/dev"
 alias cpp "cd ~/dev/cpp/learncpp/"
 alias dsa "cd ~/dev/dsa/"
 alias mat "cd ~/math"
-
-# config aliases
-alias conf "cd ~/.config/"
 
 # c++ aliases
 alias cum "g++ -std=c++17 "
@@ -37,6 +44,7 @@ alias tmopen "tmux attach-session -t "
 alias calc "cd ~/math/krea/calc/"
 alias ict "cd ~/krea/tr2/ict/"
 
+set fish_color_valid_path
 # Created by `pipx` on 2023-03-03 10:34:25
 set PATH $PATH /home/cshubhro/.local/bin
 set -x PATH /usr/local/node-v18.15.0-linux-x64/bin $PATH

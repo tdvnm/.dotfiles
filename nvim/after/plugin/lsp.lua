@@ -5,7 +5,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- LSP INSTALLERS
 require("mason").setup()
 require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls", "tsserver" },
+    ensure_installed = { "lua_ls", "tsserver", "clangd" },
 })
 
 -- LSP LINT / FORMATTING
@@ -35,7 +35,7 @@ cmp.setup({
     mapping = cmp.mapping.preset.insert({
         ["<S-tab>"] = cmp.mapping.select_prev_item(cmp_select),
         ["<tab>"] = cmp.mapping.select_next_item(cmp_select),
-        ["<Cr>"] = cmp.mapping.confirm({ select = true }),
+        ["<S-Cr>"] = cmp.mapping.confirm({ select = true }),
         ["<C-e>"] = cmp.mapping.abort(),
     }),
     sources = cmp.config.sources({
@@ -65,6 +65,15 @@ lspconfig.lua_ls.setup({
 lspconfig.pylyzer.setup({
     capabilities = capabilities,
 })
+lspconfig.cssls.setup({
+    capabilities = capabilities,
+})
+
+lspconfig.clangd.setup({
+    capabilities = capabilities,
+    cmd = { "clangd", "--background-index" },
+})
+
 --- config
 lsp.handlers["textDocument/hover"] = lsp.with(vim.lsp.handlers.hover, {
     border = "rounded",
