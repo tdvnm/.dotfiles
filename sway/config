@@ -5,7 +5,22 @@ font pango:monospace 0
 titlebar_padding 1
 titlebar_border_thickness 0
 
-gaps inner 10
+gaps inner 8
+default_border pixel 2
+client.focused "#cc8384" "#cc8384" "#cc8384" "#cc8384"
+client.unfocused "#458588" "#458588" "#458588" "#458588"
+
+# startup
+assign [app_id="firefox"] workspace 2
+assign [class="obsidian"] workspace 3
+assign [class="Spotify"] workspace 5
+assign [app_id="org.kde.dolphin"] workspace 4
+assign [app_id="org.qbittorrent.qBittorrent"] workspace 4
+
+exec swaymsg "workspace 2; exec firefox;"
+exec swaymsg "workspace 1; exec kitty;" 
+exec swaymsg "workspace 5; exec flatpak run com.spotify.Client"
+exec swaymsg "workspace 3; exec ~/Downloads/Obsidian-1.5.8.AppImage;"
 
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -26,13 +41,14 @@ set $rofi_cmd rofi \
 # Shows a combined list of the applications with desktop files and
 # executables from PATH.
 # TODO: add window with the next release of rofi-wayland
-set $menu $rofi_cmd rofi -show drun -font 'Liga SFMono Nerd Font Medium 11'
+set $menu $rofi_cmd rofi -show run -font 'Liga SFMono Nerd Font Medium 11'
+
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
-output * bg ~/.config/wallpapers/windowsxp.jpeg fill
+output * bg ~/.config/.dotfiles/wallpapers/wxp.png fill
 #
 # Example configuration:
 #
@@ -40,13 +56,14 @@ output * bg ~/.config/wallpapers/windowsxp.jpeg fill
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
+
 ### Idle configuration
 #
 # Example configuration:
 #
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         timeout 900 'swaylock -f -c 000000' \
+         timeout 1200 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
          before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
@@ -73,7 +90,6 @@ exec swayidle -w \
 #
     # Start a terminal
     bindsym $mod+Return exec $term
-    bindsym $mod+q exec 'copyq'
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -230,4 +246,8 @@ bindsym $mod+r mode "resize"
 #
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
 
-for_window [app_id="copyq"] floating enable
+# copyq
+bindsym $mod+c exec --no-startup-id copyq show
+for_window [app_id="copyq"] floating enable, resize set 600 600, border pixel 3,
+
+exec copyq

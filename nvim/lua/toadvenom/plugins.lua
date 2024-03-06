@@ -16,6 +16,7 @@ require("lazy").setup({
     "ellisonleao/gruvbox.nvim",
     "mstcl/dmg",
     "nyoom-engineering/oxocarbon.nvim",
+    "ayu-theme/ayu-vim",
 
     -- NAVIGATION
     {
