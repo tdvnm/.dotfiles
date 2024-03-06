@@ -1,0 +1,48 @@
+font_family     	Liga SFMono Nerd Font
+bold_font           Liga SFMono Nerd Font Bold
+italic_font         Liga SFMono Nerd Font Medium
+bold_italic_font    Liga SFMono Nerd Font Bold
+
+font_size   		16
+hide_window_decorations yes
+
+window_margin_width 2
+
+background_opacity 	0.8
+# cursor 			none
+cursor_shape		block
+shell_integration  no-cursor
+cursor_blink_interval 	0
+# url_color               #83a598
+# visual_bell_color       #8ec07c
+# bell_border_color       #8ec07c
+# active_border_color     #d3869b
+# inactive_border_color   #665c54
+# background            #24252b
+# foreground            #f2dff1
+# cursor                #f2a0ff
+# selection_background  #b5d5ff
+# color0                #5c555e
+# color8                #b09bb3
+# autocomplete color
+# color1                #786b77  
+# color9                #ff4f9b
+# color2                #c9f5ed
+# color10               #ffa8f6
+# color3                #E76FBE
+# color11               #ff5566
+# color4                #fc60ac
+# color12               #87ceff
+# color5                #f4adff
+# color13               #ff8fdd
+# color6                #faa7bd
+# color14               #e69ebd
+# color7                #f5b3e2
+# color15               #ffffff
+# selection_foreground #333333
+
+
+# BEGIN_KITTY_THEME
+# Earthsong
+include current-theme.conf
+# END_KITTY_THEME

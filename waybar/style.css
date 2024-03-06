@@ -1,15 +1,15 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: 'Liga SFMono Nerd Font, Medium', 'Liga SFMono Nerd Font', FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'SFMono Nerd Font, Medium', 'SFMono Nerd Font', FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 14px;
 }
 
 window#waybar {
     /* margin: 600px; */
     font-weight: 800;
-    background-color: rgba(60, 10, 45, 0.85);
+    background-color: rgba(35, 35, 50, 0.85);
     /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
-    color: #f9d4ff;
+    color: #FED9ED;
 
     transition-property: background-color;
     transition-duration: .5s;
@@ -57,9 +57,9 @@ button {
 
 #workspaces button {
     padding: 0 5px;
-    font-weight: normal;
+    font-weight: 600;
+    color: #ffa8e2;
     background-color: transparent;
-    color: #fca6f6;
 }
 
 #workspaces button:hover {
@@ -99,7 +99,7 @@ button {
 #scratchpad,
 #mpd {
     font-weight: 600;
-    color: #fca6f6;
+    color: #4ed99d;
     background-color: transparent;
     padding: 0 0px;
 }
@@ -150,10 +150,10 @@ label:focus {
     background-color: #000000;
 }
 
-/* #tray { */
-/*     opacity: 0; */
-/*     background-color: #2980b9; */
-/* } */
+#tray {
+    opacity: 0;
+    background-color: #2980b9;
+}
 
 #tray>.passive {
     -gtk-icon-effect: dim;
@@ -215,7 +215,9 @@ label:focus {
 }
 
 #scratchpad {
-    background: rgba(0, 0, 0, 0.2);
+    font-weight: 900;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0);
 }
 
 #scratchpad.empty {
