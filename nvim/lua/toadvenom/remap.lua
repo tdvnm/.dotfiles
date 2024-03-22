@@ -45,8 +45,9 @@ remap("n", "<leader>sn", ":set invnumber<CR>", { noremap = true, silent = true }
 remap("n", "<leader>srn", ":set invnumber <Cr> :set invrelativenumber<CR>", { noremap = true, silent = true })
 
 -- signcolumn toggle
-remap("n", "<leader>scy", ":set signcolumn=yes<Cr>")
-remap("n", "<leader>scn", ":set signcolumn=no<Cr>")
+remap("n", ":scy<Cr>", ":set signcolumn=yes<Cr>")
+remap("n", ":scy<Cr>", ":set signcolumn=yes<Cr>")
+remap("n", ":scn<Cr>", ":set signcolumn=no<Cr>")
 
 -- replace all occurances of the current word under the cursor
 remap("n", "<leader>hw", ":%s/\\<<C-r><C-w>\\>")

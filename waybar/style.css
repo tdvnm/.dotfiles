@@ -1,15 +1,15 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: 'SFMono Nerd Font, Medium', 'SFMono Nerd Font', FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 window#waybar {
     /* margin: 600px; */
     font-weight: 800;
-    background-color: rgba(35, 35, 50, 0.85);
+    background-color: rgba(35, 35, 50, 0.8);
     /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
-    color: #FED9ED;
+    color: #4ed99d;
 
     transition-property: background-color;
     transition-duration: .5s;
@@ -57,7 +57,7 @@ button {
 
 #workspaces button {
     padding: 0 5px;
-    font-weight: 600;
+    font-weight: 500;
     color: #ffa8e2;
     background-color: transparent;
 }
@@ -69,7 +69,7 @@ button {
 #workspaces button.focused {
     font-weight: 900;
     /* color: #000000; */
-    /* background-color: #64727D; */
+    /* background-color: #94266f; */
     box-shadow: inset 0 -3px transparent;
     color: #ffffff;
 }
@@ -136,15 +136,26 @@ button {
     }
 }
 
+
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
     color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    background-color: rgba(255, 255, 255, 0);
+    /* animation-name: blink; */
+    /* animation-duration: 0.5s; */
+    /* animation-timing-function: linear; */
+    /* animation-iteration-count: infinite; */
+    /* animation-direction: alternate; */
 }
+
+/* #battery.critical:not(.charging) { */
+/*     background-color: #f53c3c; */
+/*     color: #ffffff; */
+/*     animation-name: blink; */
+/*     animation-duration: 0.5s; */
+/*     animation-timing-function: linear; */
+/*     animation-iteration-count: infinite; */
+/*     animation-direction: alternate; */
+/* } */
 
 label:focus {
     background-color: #000000;

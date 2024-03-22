@@ -1,7 +1,7 @@
 {
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 32, // Waybar height (to be removed for auto height)
+    "height": 28, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 2, // Gaps between modules (4px)
     // Choose the order of the modules
@@ -38,13 +38,14 @@
         "format": "<span style=\"italic\">{}</span>"
     },
     "sway/scratchpad": {
-        "format": "  [ scp {count} ]",
+        "format": "  [scp {count}]",
         "show-empty": false,
         "format-icons": ["", ""],
         "tooltip": true,
         "tooltip-format": "{app}: {title}"
     },
     "sway/window": {
+        "tooltip": false,
         "format": "  {title}"
     },
     "mpd": {
@@ -74,6 +75,7 @@
         "tooltip-format-disconnected": "MPD (disconnected)"
     },
     "idle_inhibitor": {
+        "tooltip": false,
         "format": "{icon}",
         "format-icons": {
             "activated": "[ IDLE ]",
@@ -107,6 +109,7 @@
     //     // "format-icons": ["󰝤", "󰝤󰝤", "󰝤󰝤󰝤"]
     // },
     "backlight": {
+        "tooltip": false,
         // "device": "acpi_video1",
         "format": "[ {icon} {percent} ]",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
@@ -134,6 +137,7 @@
         "format-wifi": "[ {essid} {signalStrength} ]",
         "on-click": "exec swaymsg \"workspace 4; exec kitty command nmtui\"",
         "format-ethernet": "[ {ipaddr}/{cidr} lan ]", 
+        "tooltip": false,
         "tooltip-format": "[ {ifname} via {gwaddr} ]",
         "format-linked": "net {ifname} (No IP)",
         "format-disconnected": "[ {ifname}: {ipaddr}/{cidr} ]",
@@ -144,7 +148,7 @@
         "format": "[ {icon} {volume} ]",
         "format-bluetooth": "[ {volume}% {icon} {format_source} ]",
         "format-bluetooth-muted": " {icon} {format_source}",
-        // "format-muted": " {format_source}",
+        "format-muted": "[ vol 0 ]",
         // "format-source": "{volume}% ",
         // "format-source-muted": "",
         "format-icons": {
@@ -154,7 +158,7 @@
             "phone": "",
             "portable": "",
             "car": "",
-        "default": ["|------", "-|-----", "--|----", "---|---", "----|--", "-----|-", "------|"]
+        "default": ["|--------", "-|-------", "--|------", "---|-----", "----|----", "-----|---", "------|--", "-------|-", "--------|"]
         },
         "on-click": "pavucontrol"
     },

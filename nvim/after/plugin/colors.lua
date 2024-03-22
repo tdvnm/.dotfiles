@@ -8,7 +8,7 @@ require("gruvbox").setup({
     invert_tabline = false,
     invert_intend_guides = true,
     inverse = true, -- invert background for search, diffs, statuslines and errors
-    contrast = "soft", -- can be "hard", "soft" or empty string
+    -- contrast = "hard", -- can be "hard", "soft" or empty string
     palette_overrides = {
         bright_green = "#1fcc81",
         bright_purple = "#fa76a7",
@@ -23,16 +23,16 @@ require("gruvbox").setup({
 vim.cmd("colorscheme gruvbox")
 
 -- PRIMEAGEN
--- require("rose-pine").setup({
--- 	disable_background = true,
+-- require("oxocarbon").setup({
+--     disable_background = true,
 -- })
 
--- function ColorMyPencils(color)
--- 	color = color or "gruvbox"
--- 	vim.cmd.colorscheme(color)
+function ColorMyPencils(color)
+    color = color or "oxocarbon"
+    vim.cmd.colorscheme(color)
 
--- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
--- end
+    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+end
 
 -- ColorMyPencils()

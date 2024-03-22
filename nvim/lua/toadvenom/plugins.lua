@@ -16,7 +16,7 @@ require("lazy").setup({
     "ellisonleao/gruvbox.nvim",
     "mstcl/dmg",
     "nyoom-engineering/oxocarbon.nvim",
-    "ayu-theme/ayu-vim",
+    "maxmx03/solarized.nvim",
 
     -- NAVIGATION
     {
@@ -53,6 +53,9 @@ require("lazy").setup({
         },
     },
 
+    -- DEV
+    "lervag/vimtex",
+
     -- ESSENTIALS
     "github/copilot.vim",
     "tpope/vim-commentary",
@@ -60,7 +63,6 @@ require("lazy").setup({
     "ggandor/lightspeed.nvim",
     "numtostr/FTerm.nvim",
     "mbbill/undotree",
-
     -- MISC
     "Eandrju/cellular-automaton.nvim",
     "hoob3rt/lualine.nvim",
