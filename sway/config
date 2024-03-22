@@ -1,26 +1,32 @@
 ### Variables
 #default_border none
-default_floating_border none
+# default_floating_border none
 font pango:monospace 0
 titlebar_padding 1
 titlebar_border_thickness 0
 
 gaps inner 8
 default_border pixel 2
-client.focused "#cc8384" "#cc8384" "#cc8384" "#cc8384"
+client.focused "#ff00b3" "#ff00b3" "#ff00b3" "#ff00b3"
 client.unfocused "#458588" "#458588" "#458588" "#458588"
 
-# startup
+# workspace
+# web
 assign [app_id="firefox"] workspace 2
+# notes
 assign [class="obsidian"] workspace 3
+# med
 assign [class="Spotify"] workspace 5
+# misc
 assign [app_id="org.kde.dolphin"] workspace 4
 assign [app_id="org.qbittorrent.qBittorrent"] workspace 4
+assign [class="Keybase"] workspace 4
 
+#startup
 exec swaymsg "workspace 2; exec firefox;"
 exec swaymsg "workspace 1; exec kitty;" 
 exec swaymsg "workspace 5; exec flatpak run com.spotify.Client"
-exec swaymsg "workspace 3; exec ~/Downloads/Obsidian-1.5.8.AppImage;"
+exec swaymsg "workspace 3; exec ~/appimg/Obsidian-1.5.8.AppImage;"
 
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -205,16 +211,15 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 50px
-    bindsym $down resize grow height 50px
-    bindsym $up resize shrink height 50px
-    bindsym $right resize grow width 50px
+    bindsym $down resize shrink width 50px
+    bindsym $right resize grow height 50px
+    bindsym $left resize shrink height 50px
+    bindsym $up resize grow width 50px
 
     # Ditto, with arrow keys
     bindsym Left resize shrink width 50px
     bindsym Down resize grow height 50px
     bindsym Up resize shrink height 50px
-
     bindsym Right resize grow width 50px
 
     # Return to default mode
@@ -251,3 +256,21 @@ bindsym $mod+c exec --no-startup-id copyq show
 for_window [app_id="copyq"] floating enable, resize set 600 600, border pixel 3,
 
 exec copyq
+
+
+# Screen capture
+set $screenshot 1 selected, 2 whole, 3 selected clipboard, 4 whole clipboard, 5 swappy
+mode "$screenshot" {
+    bindsym 1 exec 'grim -g "$(slurp)" ~/images/ss/selected_$(date +"%Y%m-%d%H%M%S").png', mode "default"
+    bindsym 2 exec 'grim /images/ss/whole_$(date +"%Y%m-%d%H%M%S").png', mode "default"
+    bindsym 3 exec 'grim -g "$(slurp)" - | wl-copy', mode "default"
+    bindsym 4 exec 'grim - | wl-copy', mode "default"
+    bindsym 5 exec 'grim -g "$(slurp)" - | swappy -f -', mode "default"
+
+# back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+Print mode "default"
+}
+
+bindsym $mod+Print mode "$screenshot"

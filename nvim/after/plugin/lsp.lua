@@ -52,6 +52,9 @@ local lsp = vim.lsp
 lspconfig.tsserver.setup({
     capabilities = capabilities,
 })
+lspconfig.svelte.setup({
+    capabilities = capabilities,
+})
 lspconfig.lua_ls.setup({
     capabilities = capabilities,
     settings = {
@@ -68,7 +71,9 @@ lspconfig.pylyzer.setup({
 lspconfig.cssls.setup({
     capabilities = capabilities,
 })
-
+lspconfig.texlab.setup({
+    capabilities = capabilities,
+})
 lspconfig.clangd.setup({
     capabilities = capabilities,
     cmd = { "clangd", "--background-index" },
@@ -77,7 +82,18 @@ lspconfig.clangd.setup({
 --- config
 lsp.handlers["textDocument/hover"] = lsp.with(vim.lsp.handlers.hover, {
     border = "rounded",
+    -- title = "Hover",
 })
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+    border = "rounded",
+})
+
+-- diagnostic on hover
+vim.diagnostic.config({
+    virtual_text = false,
+    float = { border = "rounded" },
+})
+
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
     callback = function(ev)
@@ -87,3 +103,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
     end,
 })
+
+vim.diagnostic.config({})
+
+-- Show line diagnostics automatically in hover window
+vim.o.updatetime = 950
+vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])

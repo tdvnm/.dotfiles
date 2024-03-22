@@ -1,5 +1,4 @@
 function fish_greeting
-    ls
 end
 
 # vim mode
@@ -29,6 +28,8 @@ alias cpp "cd ~/dev/cpp/learncpp/"
 alias dsa "cd ~/dev/dsa/"
 alias mat "cd ~/math"
 
+alias c "cd ~/dev/c/"
+
 # c++ aliases
 alias cum "g++ -std=c++17 "
 alias cumass "g++ -Wall -Weff++ Wextra -Wconversion -Wsign-conversion "
@@ -56,3 +57,6 @@ set PATH $PATH /home/shubhro/dev/scripts/
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+# launchers
+alias torb "flatpak run com.github.micahflee.torbrowser-launcher"

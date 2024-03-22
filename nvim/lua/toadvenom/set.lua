@@ -35,11 +35,10 @@ set.updatetime = 50
 set.splitbelow = true
 set.splitright = true
 
+-- highlight on yank
+vim.cmd("au TextYankPost * lua vim.highlight.on_yank {higroup='IncSearch', timeout=150}")
+
 -- set.cursorline = true
 set.virtualedit = "block"
-
-set.fillchars = { eob = "~" }
-vim.cmd([[:hi NonText guifg=bg]])
-
--- highlight on yank
-vim.cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = false}")
+-- vim.cmd("set statusline+=%F")
+--
