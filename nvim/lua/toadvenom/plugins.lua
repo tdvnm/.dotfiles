@@ -18,6 +18,10 @@ require("lazy").setup({
     "nyoom-engineering/oxocarbon.nvim",
     "maxmx03/solarized.nvim",
 
+    -- misc
+    "Mr-LLLLL/interestingwords.nvim",
+    "lfv89/vim-interestingwords",
+
     -- NAVIGATION
     {
         "nvim-telescope/telescope.nvim",
