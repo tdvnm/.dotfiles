@@ -1,4 +1,5 @@
 function fish_greeting
+    kitten icat --align left ~/Pictures/patterns.png
 end
 
 # vim mode
@@ -10,6 +11,11 @@ function fish_user_key_bindings
         bind -M $mode \cF forward-char
     end
 end
+
+# normal
+alias sudo "sudo "
+alias la "gt "
+alias snv "sudoedit "
 
 # shortcuts
 alias clr "clear"
@@ -60,3 +66,8 @@ set --export PATH $BUN_INSTALL/bin $PATH
 
 # launchers
 alias torb "flatpak run com.github.micahflee.torbrowser-launcher"
+alias pdfv "zathura"
+
+export SUDO_EDITOR=nvim
+export EDITOR=nvim
+export browser=firefox

@@ -10,9 +10,9 @@ set.expandtab = true
 
 set.smartindent = true
 set.guicursor = ""
-set.signcolumn = "no"
+set.signcolumn = "yes"
 
-set.wrap = false
+set.wrap = true
 
 set.swapfile = false
 set.backup = false
@@ -41,4 +41,13 @@ vim.cmd("au TextYankPost * lua vim.highlight.on_yank {higroup='IncSearch', timeo
 -- set.cursorline = true
 set.virtualedit = "block"
 -- vim.cmd("set statusline+=%F")
---
+
+if not opts then
+    opts = {}
+end
+
+-- Configure hererocks and luarocks
+opts.rocks = {
+    hererocks = true,
+    enabled = false,
+}

@@ -1,0 +1,24 @@
+require("ultisnips").set({
+    all = {
+        { "c",          "cpp",       "lua", "python" },
+        { "typescript", "javascript" },
+    },
+    lua = {
+        { "snippets", "snippets.lua" },
+    },
+    python = {
+        { "snippets", "snippets.py" },
+    },
+    c = {
+        { "snippets", "snippets.c" },
+    },
+    cpp = {
+        { "snippets", "snippets.cpp" },
+    },
+    javascript = {
+        { "snippets", "snippets.js" },
+    },
+    typescript = {
+        { "snippets", "snippets.ts" },
+    },
+})

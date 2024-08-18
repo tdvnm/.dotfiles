@@ -1,32 +1,34 @@
 ### Variables
 #default_border none
 # default_floating_border none
-font pango:monospace 0
+# font pango:monospace 1
 titlebar_padding 1
 titlebar_border_thickness 0
 
 gaps inner 8
 default_border pixel 2
-client.focused "#ff00b3" "#ff00b3" "#ff00b3" "#ff00b3"
-client.unfocused "#458588" "#458588" "#458588" "#458588"
+client.focused "#ffffff" "#ffffff" "#ffffff" "#ffffff"
+client.unfocused "#000000" "#000000" "#000000" "#000000"
 
 # workspace
 # web
 assign [app_id="firefox"] workspace 2
 # notes
-assign [class="obsidian"] workspace 3
+# assign [class="obsidian"] workspace 3
 # med
-assign [class="Spotify"] workspace 5
+assign [class="Spotify"] workspace 4
+# assign [app_id="zathura"] workspace 3
 # misc
-assign [app_id="org.kde.dolphin"] workspace 4
-assign [app_id="org.qbittorrent.qBittorrent"] workspace 4
-assign [class="Keybase"] workspace 4
+assign [app_id="org.kde.dolphin"] workspace 5
+# assign [app_id="org.qbittorrent.qBittorrent"] workspace 4
+# assign [class="Keybase"] workspace 4
 
 #startup
 exec swaymsg "workspace 2; exec firefox;"
 exec swaymsg "workspace 1; exec kitty;" 
-exec swaymsg "workspace 5; exec flatpak run com.spotify.Client"
-exec swaymsg "workspace 3; exec ~/appimg/Obsidian-1.5.8.AppImage;"
+exec swaymsg "workspace 6; exec kitty;" 
+exec swaymsg "workspace 4; exec flatpak run com.spotify.Client"
+# exec swaymsg "workspace 3; exec ~/appimg/Obsidian-1.5.8.AppImage;"
 
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -47,7 +49,7 @@ set $rofi_cmd rofi \
 # Shows a combined list of the applications with desktop files and
 # executables from PATH.
 # TODO: add window with the next release of rofi-wayland
-set $menu $rofi_cmd rofi -show run -font 'Liga SFMono Nerd Font Medium 11'
+set $menu $rofi_cmd rofi -show run -font 'Liga SFMono Nerd Font Regular 12'
 
 
 ### Output configuration
@@ -66,12 +68,16 @@ output * bg ~/.config/.dotfiles/wallpapers/wxp.png fill
 ### Idle configuration
 #
 # Example configuration:
-#
+
 exec swayidle -w \
-         timeout 900 'swaylock -f -c 000000' \
+         timeout 2000 'swaylock -f -c 000000' \
          timeout 1200 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
          before-sleep 'swaylock -f -c 000000'
-#
+
+
+bindswitch lid:on output eDP-1 enable
+bindswitch lid:toggle exec echo "Lid moved"
+bindswitch lid:off output eDP-1 enable
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -117,7 +123,7 @@ exec swayidle -w \
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
-#
+seat seat0 hide_cursor 3000
     # Move your focus around
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
@@ -166,6 +172,7 @@ exec swayidle -w \
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+    bindsym $mod+X+U exec swaylock
 #
 # Layout stuff:
 #
@@ -274,3 +281,10 @@ mode "$screenshot" {
 }
 
 bindsym $mod+Print mode "$screenshot"
+
+#change capslock to escape
+set $mod Mod4 
+input type:keyboard {
+    xkb_layout us
+    xkb_options caps:escape
+}

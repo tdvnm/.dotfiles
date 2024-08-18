@@ -7,16 +7,18 @@
 window#waybar {
     /* margin: 600px; */
     font-weight: 800;
-    background-color: rgba(35, 35, 50, 0.8);
-    /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
-    color: #4ed99d;
+    background-color: #FED9ED;
+    /*background-color: rgba(35, 35, 50, 0.8);*/
+    border-bottom: 2px solid #ED5AB3;
+    /*color: #4ed99d;*/
+    color: #B0578D;
 
     transition-property: background-color;
     transition-duration: .5s;
 }
 
 window#waybar.hidden {
-    opacity: 0.2;
+    opacity: 0.8;
 }
 
 /*
@@ -58,24 +60,30 @@ button {
 #workspaces button {
     padding: 0 5px;
     font-weight: 500;
-    color: #ffa8e2;
+    color: #ED5AB3;
+    /*color: #4a253f;*/
+    /*color: #ffa8e2;*/
     background-color: transparent;
 }
 
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(20, 0, 0, 0.2);
+    /* padding: 0 0px; */
+    color: #ffffff;
 }
 
 #workspaces button.focused {
     font-weight: 900;
+    color: #B0578D;
     /* color: #000000; */
     /* background-color: #94266f; */
-    box-shadow: inset 0 -3px transparent;
-    color: #ffffff;
+    /*box-shadow: inset 0 -3px transparent;*/
+    /*color: #ffffff;*/
 }
 
 #workspaces button.urgent {
     color: #eb4d4b;
+    font-weight: 900;
 }
 
 #mode {
@@ -99,7 +107,8 @@ button {
 #scratchpad,
 #mpd {
     font-weight: 600;
-    color: #4ed99d;
+    color: #ED5AB3;
+    /*color: #4ed99d;*/
     background-color: transparent;
     padding: 0 0px;
 }
@@ -125,7 +134,7 @@ button {
 
 #clock {
     font-weight: 900;
-    color: #ffffff;
+    color: #B0578D;
     background-color: transparent;
 }
 
@@ -138,7 +147,7 @@ button {
 
 
 #battery.critical:not(.charging) {
-    color: #ffffff;
+    color: #00dd99;
     background-color: rgba(255, 255, 255, 0);
     /* animation-name: blink; */
     /* animation-duration: 0.5s; */
@@ -163,7 +172,7 @@ label:focus {
 
 #tray {
     opacity: 0;
-    background-color: #2980b9;
+    background-color: transparent;
 }
 
 #tray>.passive {
@@ -226,8 +235,8 @@ label:focus {
 }
 
 #scratchpad {
-    font-weight: 900;
-    color: #ffffff;
+    font-weight: 800;
+    color: #8a205c;
     background: rgba(0, 0, 0, 0);
 }
 

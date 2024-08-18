@@ -1,0 +1,5 @@
+[Default Applications]
+application/zip=org.gnome.font-viewer.desktop
+
+[Added Associations]
+application/zip=org.gnome.font-viewer.desktop;

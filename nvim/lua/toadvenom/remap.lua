@@ -58,8 +58,10 @@ remap("n", "<C-up>", ":vertical resize +5<cr>")
 remap("n", "<C-left>", ":horizontal resize -5<cr>")
 remap("n", "<C-right>", ":horizontal resize +5<cr>")
 
--- MACROS
+-- OPEN AND CLOSE
+remap("n", "<Esc>x", ":q<CR>")
 
+-- MACROS
 -- EXPERIMENTAL
 -- remap("n", ":please", "<A-q>treeeCR>")
 -- remap("n", "i", ":highlight CursorLine guibg=bg guifg=bg<CR>i")
