@@ -26,7 +26,7 @@
 
 ## rofi
 - [ ] runcommands from rofi
-- [ ] change font to sf mono
+- [x] change font to sf mono
 
 ## waybar
 - [ ] make custom modules to run shell commands
