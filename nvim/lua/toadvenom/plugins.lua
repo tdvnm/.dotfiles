@@ -13,14 +13,15 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     -- COLORSCHEME
+    "haystackandroid/strawberry",
     "ellisonleao/gruvbox.nvim",
     "mstcl/dmg",
     "nyoom-engineering/oxocarbon.nvim",
     "maxmx03/solarized.nvim",
 
     -- misc
-    "Mr-LLLLL/interestingwords.nvim",
-    "lfv89/vim-interestingwords",
+    -- "Mr-LLLLL/interestingwords.nvim",
+    -- "lfv89/vim-interestingwords",
 
     -- NAVIGATION
     {
@@ -36,7 +37,7 @@ require("lazy").setup({
             "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons",
             "MunifTanjim/nui.nvim",
-            "3rd/image.nvim",
+            -- "3rd/image.nvim",
         },
     },
     "theprimeagen/harpoon",
@@ -56,9 +57,20 @@ require("lazy").setup({
             "rafamadriz/friendly-snippets",
         },
     },
+    "honza/vim-snippets",
 
     -- DEV
+    "sirver/ultisnips",
     "lervag/vimtex",
+    {
+        "OXY2DEV/markview.nvim",
+        ft = "markdown",
+
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-tree/nvim-web-devicons",
+        },
+    },
 
     -- ESSENTIALS
     "github/copilot.vim",
@@ -69,6 +81,6 @@ require("lazy").setup({
     "mbbill/undotree",
     -- MISC
     "Eandrju/cellular-automaton.nvim",
-    "hoob3rt/lualine.nvim",
+    -- "hoob3rt/lualine.nvim",
     "goolord/alpha-nvim",
 })

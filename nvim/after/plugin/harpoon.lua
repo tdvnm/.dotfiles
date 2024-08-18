@@ -8,32 +8,32 @@ vim.keymap.set("n", "<leader>d", mark.rm_file)
 vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
 
 vim.keymap.set("n", "<A-1>", function()
-	ui.nav_file(1)
+    ui.nav_file(1)
 end)
 vim.keymap.set("n", "<A-2>", function()
-	ui.nav_file(2)
+    ui.nav_file(2)
 end)
 vim.keymap.set("n", "<A-3>", function()
-	ui.nav_file(3)
+    ui.nav_file(3)
 end)
 vim.keymap.set("n", "<A-4>", function()
-	ui.nav_file(4)
+    ui.nav_file(4)
 end)
 vim.keymap.set("n", "<A-5>", function()
-	ui.nav_file(5)
+    ui.nav_file(5)
 end)
 vim.keymap.set("n", "<A-6>", function()
-	ui.nav_file(6)
+    ui.nav_file(6)
 end)
 vim.keymap.set("n", "<A-7>", function()
-	ui.nav_file(7)
+    ui.nav_file(7)
 end)
 
 vim.api.nvim_create_autocmd({ "Filetype" }, {
-	pattern = "harpoon",
-	callback = function()
-		vim.opt.cursorline = true
-		vim.api.nvim_set_hl(0, "HarpoonWindow", { link = "Normal" })
-		vim.api.nvim_set_hl(0, "HarpoonBorder", { link = "Normal" })
-	end,
+    pattern = "harpoon",
+    callback = function()
+        vim.opt.cursorline = true
+        vim.api.nvim_set_hl(0, "HarpoonWindow", { link = "Normal" })
+        vim.api.nvim_set_hl(0, "HarpoonBorder", { link = "Normal" })
+    end,
 })

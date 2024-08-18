@@ -6,7 +6,6 @@
     "spacing": 2, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/window", "sway/mode", "sway/scratchpad", "custom/media"],
-    // "modules-center": ["sway/window"],
     "modules-right": ["tray", "mpd", "idle_inhibitor", "network", "backlight", "pulseaudio", "battery", "battery#bat2", "clock", "custom/keybase"],
     // Modules configuration
     "sway/workspaces": {
@@ -15,10 +14,13 @@
         "format-icons": {
             "1": "term",
             "2": "www",
-            "3": "note",
-            "4": "misc",
-            "5": "mus",
-            "6": "vid"
+            "3": "doc",
+            "4": "mus",
+            "5": "misc",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九",
             // "5": ""
             // "urgent": "",
             // "focused": "",
@@ -46,7 +48,7 @@
     },
     "sway/window": {
         "tooltip": false,
-        "format": "  {title}"
+        "format": "  [ {title} ]"
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
@@ -83,7 +85,8 @@
         }
     },
     "tray": {
-        "icon-size": 1,
+        "format": "[ {icon} ]",
+        "icon-size": 15,
         "spacing": 10
     },
     "cpu": {
@@ -145,7 +148,7 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "[ {icon} {volume} ]",
+        "format": "[ vol {volume} ]",
         "format-bluetooth": "[ {volume}% {icon} {format_source} ]",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": "[ vol 0 ]",
