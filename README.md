@@ -17,17 +17,18 @@
 - [x] fix fterm, need it on the side
 - [x] better keybinds (reddit)
 - [x] switch to lazy plugin
-
-## tmux
-- [ ] save sessions after a reboot
+- [ ] set up fzf
 
 ## bash
 - [x] git push when config files are changed
 
 ## rofi
 - [ ] runcommands from rofi
+- [ ] add more functionality
+- [ ] change theme
 - [x] change font to sf mono
 
-## waybar
-- [ ] make custom modules to run shell commands
+## sway+bar
+- [x] make custom modules to run shell commands
 - [ ] make better keybinds
+- [x] run copyq
