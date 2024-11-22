@@ -1,0 +1,116 @@
+[2024-11-03 09:30:23.235] [info]  No state version found, assuming empty state.
+[2024-11-03 09:30:25.074] [info]  Coredumps are disabled in renderer process
+[2024-11-03 09:30:25.995] [info]  State version: 68
+[2024-11-03 09:30:26.078] [info]  Retrieving application id
+[2024-11-03 09:30:26.903] [info]  Self-host environment did not respond in time, emitting previous config.
+[2024-11-03 09:30:30.211] [info]  Checking for update
+[2024-11-03 09:30:30.224] [info]  Generated new staging user ID: c10aeeba-9a94-561e-a5c7-27318ef1c047
+[2024-11-03 09:30:31.691] [info]  Update for version 2024.10.2 is not available (latest version: 2024.10.2, downgrade is disallowed).
+[2024-11-03 09:30:38.536] [info]  Retrieving application id
+[2024-11-03 09:31:05.204] [info]  Retrieving application id
+[2024-11-03 09:31:07.692] [error] {
+  response: {
+    error: 'invalid_grant',
+    error_description: 'invalid_username_or_password',
+    ErrorModel: {
+      Message: 'Username or password is incorrect. Try again.',
+      Object: 'error'
+    }
+  },
+  message: 'Username or password is incorrect. Try again.',
+  captchaRequired: false,
+  statusCode: 400
+}
+[2024-11-03 09:31:07.696] [error] Received API exception: {
+  response: {
+    error: 'invalid_grant',
+    error_description: 'invalid_username_or_password',
+    ErrorModel: {
+      Message: 'Username or password is incorrect. Try again.',
+      Object: 'error'
+    }
+  },
+  message: 'Username or password is incorrect. Try again.',
+  captchaRequired: false,
+  statusCode: 400
+}
+[2024-11-03 09:32:02.771] [info]  Retrieving application id
+[2024-11-03 09:32:04.128] [info]  Error: No password found
+[2024-11-03 09:32:04.507] [info]  Finished search indexing
+[2024-11-03 09:32:07.226] [info]  Starting decryption using multithreading
+[2024-11-03 09:32:07.314] [info]  Finished search indexing
+[2024-11-03 09:33:40.676] [error] Error: WebSocket failed to connect. The connection could not be found on the server, either the endpoint may not be a SignalR endpoint, the connection ID is not present on the server, or there is a proxy blocking WebSockets. If you have multiple servers check that sticky sessions are enabled.
+[2024-11-03 09:38:25.338] [error] Error: WebSocket failed to connect. The connection could not be found on the server, either the endpoint may not be a SignalR endpoint, the connection ID is not present on the server, or there is a proxy blocking WebSockets. If you have multiple servers check that sticky sessions are enabled.
+[2024-11-04 18:31:19.834] [info]  State version: 68
+[2024-11-04 18:31:19.841] [info]  Migrator MinVersionMigrator (to version 3) should migrate: false - up
+[2024-11-04 18:31:19.842] [info]  Migrator RemoveEverBeenUnlockedMigrator (to version 4) should migrate: false - up
+[2024-11-04 18:31:19.842] [info]  Migrator AddKeyTypeToOrgKeysMigrator (to version 5) should migrate: false - up
+[2024-11-04 18:31:19.845] [info]  Migrator RemoveLegacyEtmKeyMigrator (to version 6) should migrate: false - up
+[2024-11-04 18:31:19.845] [info]  Migrator MoveBiometricAutoPromptToAccount (to version 7) should migrate: false - up
+[2024-11-04 18:31:19.846] [info]  Migrator MoveStateVersionMigrator (to version 8) should migrate: false - up
+[2024-11-04 18:31:19.846] [info]  Migrator MoveBrowserSettingsToGlobal (to version 9) should migrate: false - up
+[2024-11-04 18:31:19.846] [info]  Migrator EverHadUserKeyMigrator (to version 10) should migrate: false - up
+[2024-11-04 18:31:19.846] [info]  Migrator OrganizationKeyMigrator (to version 11) should migrate: false - up
+[2024-11-04 18:31:19.847] [info]  Migrator MoveEnvironmentStateToProviders (to version 12) should migrate: false - up
+[2024-11-04 18:31:19.847] [info]  Migrator ProviderKeyMigrator (to version 13) should migrate: false - up
+[2024-11-04 18:31:19.847] [info]  Migrator MoveBiometricClientKeyHalfToStateProviders (to version 14) should migrate: false - up
+[2024-11-04 18:31:19.847] [info]  Migrator FolderMigrator (to version 15) should migrate: false - up
+[2024-11-04 18:31:19.848] [info]  Migrator LastSyncMigrator (to version 16) should migrate: false - up
+[2024-11-04 18:31:19.848] [info]  Migrator EnablePasskeysMigrator (to version 17) should migrate: false - up
+[2024-11-04 18:31:19.848] [info]  Migrator AutofillSettingsKeyMigrator (to version 18) should migrate: false - up
+[2024-11-04 18:31:19.848] [info]  Migrator RequirePasswordOnStartMigrator (to version 19) should migrate: false - up
+[2024-11-04 18:31:19.848] [info]  Migrator PrivateKeyMigrator (to version 20) should migrate: false - up
+[2024-11-04 18:31:19.849] [info]  Migrator CollectionMigrator (to version 21) should migrate: false - up
+[2024-11-04 18:31:19.849] [info]  Migrator CollapsedGroupingsMigrator (to version 22) should migrate: false - up
+[2024-11-04 18:31:19.849] [info]  Migrator MoveBiometricPromptsToStateProviders (to version 23) should migrate: false - up
+[2024-11-04 18:31:19.849] [info]  Migrator SmOnboardingTasksMigrator (to version 24) should migrate: false - up
+[2024-11-04 18:31:19.849] [info]  Migrator ClearClipboardDelayMigrator (to version 25) should migrate: false - up
+[2024-11-04 18:31:19.849] [info]  Migrator RevertLastSyncMigrator (to version 26) should migrate: false - up
+[2024-11-04 18:31:19.850] [info]  Migrator BadgeSettingsMigrator (to version 27) should migrate: false - up
+[2024-11-04 18:31:19.850] [info]  Migrator MoveBiometricUnlockToStateProviders (to version 28) should migrate: false - up
+[2024-11-04 18:31:19.850] [info]  Migrator UserNotificationSettingsKeyMigrator (to version 29) should migrate: false - up
+[2024-11-04 18:31:19.850] [info]  Migrator PolicyMigrator (to version 30) should migrate: false - up
+[2024-11-04 18:31:19.850] [info]  Migrator EnableContextMenuMigrator (to version 31) should migrate: false - up
+[2024-11-04 18:31:19.850] [info]  Migrator PreferredLanguageMigrator (to version 32) should migrate: false - up
+[2024-11-04 18:31:19.851] [info]  Migrator AppIdMigrator (to version 33) should migrate: false - up
+[2024-11-04 18:31:19.851] [info]  Migrator DomainSettingsMigrator (to version 34) should migrate: false - up
+[2024-11-04 18:31:19.851] [info]  Migrator MoveThemeToStateProviderMigrator (to version 35) should migrate: false - up
+[2024-11-04 18:31:19.851] [info]  Migrator VaultSettingsKeyMigrator (to version 36) should migrate: false - up
+[2024-11-04 18:31:19.851] [info]  Migrator AvatarColorMigrator (to version 37) should migrate: false - up
+[2024-11-04 18:31:19.851] [info]  Migrator TokenServiceStateProviderMigrator (to version 38) should migrate: false - up
+[2024-11-04 18:31:19.852] [info]  Migrator MoveBillingAccountProfileMigrator (to version 39) should migrate: false - up
+[2024-11-04 18:31:19.852] [info]  Migrator OrganizationMigrator (to version 40) should migrate: false - up
+[2024-11-04 18:31:19.852] [info]  Migrator EventCollectionMigrator (to version 41) should migrate: false - up
+[2024-11-04 18:31:19.852] [info]  Migrator EnableFaviconMigrator (to version 42) should migrate: false - up
+[2024-11-04 18:31:19.852] [info]  Migrator AutoConfirmFingerPrintsMigrator (to version 43) should migrate: false - up
+[2024-11-04 18:31:19.852] [info]  Migrator UserDecryptionOptionsMigrator (to version 44) should migrate: false - up
+[2024-11-04 18:31:19.853] [info]  Migrator MergeEnvironmentState (to version 45) should migrate: false - up
+[2024-11-04 18:31:19.853] [info]  Migrator DeleteBiometricPromptCancelledData (to version 46) should migrate: false - up
+[2024-11-04 18:31:19.853] [info]  Migrator MoveDesktopSettingsMigrator (to version 47) should migrate: false - up
+[2024-11-04 18:31:19.853] [info]  Migrator MoveDdgToStateProviderMigrator (to version 48) should migrate: false - up
+[2024-11-04 18:31:19.853] [info]  Migrator AccountServerConfigMigrator (to version 49) should migrate: false - up
+[2024-11-04 18:31:19.853] [info]  Migrator KeyConnectorMigrator (to version 50) should migrate: false - up
+[2024-11-04 18:31:19.854] [info]  Migrator RememberedEmailMigrator (to version 51) should migrate: false - up
+[2024-11-04 18:31:19.854] [info]  Migrator DeleteInstalledVersion (to version 52) should migrate: false - up
+[2024-11-04 18:31:19.854] [info]  Migrator DeviceTrustServiceStateProviderMigrator (to version 53) should migrate: false - up
+[2024-11-04 18:31:19.854] [info]  Migrator SendMigrator (to version 54) should migrate: false - up
+[2024-11-04 18:31:19.854] [info]  Migrator MoveMasterKeyStateToProviderMigrator (to version 55) should migrate: false - up
+[2024-11-04 18:31:19.854] [info]  Migrator AuthRequestMigrator (to version 56) should migrate: false - up
+[2024-11-04 18:31:19.854] [info]  Migrator CipherServiceMigrator (to version 57) should migrate: false - up
+[2024-11-04 18:31:19.855] [info]  Migrator RemoveRefreshTokenMigratedFlagMigrator (to version 58) should migrate: false - up
+[2024-11-04 18:31:19.855] [info]  Migrator KdfConfigMigrator (to version 59) should migrate: false - up
+[2024-11-04 18:31:19.855] [info]  Migrator KnownAccountsMigrator (to version 60) should migrate: false - up
+[2024-11-04 18:31:19.855] [info]  Migrator PinStateMigrator (to version 61) should migrate: false - up
+[2024-11-04 18:31:19.855] [info]  Migrator VaultTimeoutSettingsServiceStateProviderMigrator (to version 62) should migrate: false - up
+[2024-11-04 18:31:19.855] [info]  Migrator PasswordOptionsMigrator (to version 63) should migrate: false - up
+[2024-11-04 18:31:19.856] [info]  Migrator GeneratorHistoryMigrator (to version 64) should migrate: false - up
+[2024-11-04 18:31:19.856] [info]  Migrator ForwarderOptionsMigrator (to version 65) should migrate: false - up
+[2024-11-04 18:31:19.856] [info]  Migrator MoveFinalDesktopSettingsMigrator (to version 66) should migrate: false - up
+[2024-11-04 18:31:19.856] [info]  Migrator RemoveUnassignedItemsBannerDismissed (to version 67) should migrate: false - up
+[2024-11-04 18:31:19.856] [info]  Migrator MoveLastSyncDate (to version 68) should migrate: false - up
+[2024-11-04 18:31:21.926] [info]  Coredumps are disabled in renderer process
+[2024-11-04 18:31:23.449] [info]  State version: 68
+[2024-11-04 18:31:23.474] [info]  Error: No password found
+[2024-11-04 18:31:24.399] [info]  Self-host environment did not respond in time, emitting previous config.
+[2024-11-04 18:31:27.147] [info]  Checking for update
+[2024-11-04 18:31:29.485] [info]  Update for version 2024.10.2 is not available (latest version: 2024.10.2, downgrade is disallowed).
