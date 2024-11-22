@@ -17,9 +17,9 @@ vim.g.tex_latexmk = {
     },
 }
 
-vim.g.vimtex_compiler_latexmk_engines = {
-    _ = "-xelatex",
-}
+-- vim.g.vimtex_compiler_latexmk_engines = {
+--     _ = "-xelatex",
+-- }
 
 -- Set the viewer options for VimTeX
 vim.g.vimtex_view_method = "zathura"        -- Built-in viewer method

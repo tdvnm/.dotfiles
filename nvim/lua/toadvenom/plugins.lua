@@ -60,17 +60,17 @@ require("lazy").setup({
     "honza/vim-snippets",
 
     -- DEV
-    "sirver/ultisnips",
+    -- "sirver/ultisnips",
     "lervag/vimtex",
-    {
-        "OXY2DEV/markview.nvim",
-        ft = "markdown",
+    -- {
+    --     "OXY2DEV/markview.nvim",
+    --     ft = "markdown",
 
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-            "nvim-tree/nvim-web-devicons",
-        },
-    },
+    --     dependencies = {
+    --         "nvim-treesitter/nvim-treesitter",
+    --         "nvim-tree/nvim-web-devicons",
+    --     },
+    -- },
 
     -- ESSENTIALS
     "github/copilot.vim",

@@ -5,7 +5,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- LSP INSTALLERS
 require("mason").setup()
 require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls", "tsserver", "clangd" },
+    ensure_installed = { "lua_ls", "clangd" },
 })
 
 -- LSP LINT / FORMATTING
