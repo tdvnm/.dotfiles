@@ -35,7 +35,7 @@ cmp.setup({
     mapping = cmp.mapping.preset.insert({
         ["<S-tab>"] = cmp.mapping.select_prev_item(cmp_select),
         ["<tab>"] = cmp.mapping.select_next_item(cmp_select),
-        ["<S-Cr>"] = cmp.mapping.confirm({ select = true }),
+        ["<Cr>"] = cmp.mapping.confirm({ select = true }),
         ["<C-e>"] = cmp.mapping.abort(),
     }),
     sources = cmp.config.sources({
@@ -49,9 +49,9 @@ cmp.setup({
 -- LSP SETUP
 local lsp = vim.lsp
 --- servers
-lspconfig.tsserver.setup({
-    capabilities = capabilities,
-})
+-- lspconfig.tsserver.setup({
+--     capabilities = capabilities,
+-- })
 lspconfig.svelte.setup({
     capabilities = capabilities,
 })
