@@ -3,8 +3,8 @@
 (setq doom-theme 'doom-henna)
 (add-to-list 'custom-theme-load-path (expand-file-name "themes/" doom-user-dir))
 
-;; (setq doom-font (font-spec :family "Monaspace Neon NF" :size 16))
-(setq doom-font (font-spec :family "Sergamon" :size 16))
+(setq doom-font (font-spec :family "Monaspace Neon NF" :size 16))
+;; (setq doom-font (font-spec :family "Sergamon" :size 16))
 
 ;; frameless + transparency
 (add-to-list 'default-frame-alist '(undecorated . t))
