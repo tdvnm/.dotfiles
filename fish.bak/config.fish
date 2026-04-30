@@ -1,5 +1,5 @@
 function fish_greeting
-    # kitten icat --align left ~/Pictures/patterns.png
+    cal
 end
 
 # vim mode
@@ -24,17 +24,6 @@ alias nv "nvim"
 
 alias nvconf "nv ~/.config/nvim/"
 
-# git alias
-alias gitall "git.sh"
-
-# directory aliases
-alias dev "cd ~/dev"
-alias cpp "cd ~/dev/cpp/learncpp/"
-alias dsa "cd ~/dev/dsa/"
-alias mat "cd ~/math"
-
-alias c "cd ~/dev/c/"
-
 # c++ aliases
 alias cum "g++ -std=c++17 "
 alias cumass "g++ -Wall -Weff++ Wextra -Wconversion -Wsign-conversion "
@@ -45,10 +34,6 @@ alias texcompile "latexmk -pdf -lualatex -interaction=batchmode -f "
 # tmux aliases
 alias tmls "tmux ls"
 alias tmopen "tmux attach-session -t "
-
-# temp college aliases
-alias calc "cd ~/math/krea/calc/"
-alias ict "cd ~/krea/tr2/ict/"
 
 set fish_color_valid_path
 # Created by `pipx` on 2023-03-03 10:34:25
@@ -63,14 +48,6 @@ set PATH $PATH /home/shubhro/dev/scripts/
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
-# launchers
-alias torb "flatpak run com.github.micahflee.torbrowser-launcher"
-alias pdfv "zathura"
-
 export SUDO_EDITOR=nvim
 export EDITOR=nvim
 export browser=firefox
-export PATH="$HOME/.local/bin:$PATH"
-
-# Doom Emacs
-set -x PATH $HOME/.config/emacs/bin $PATH
