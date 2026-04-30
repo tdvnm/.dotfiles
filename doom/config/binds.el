@@ -1,10 +1,10 @@
 ;;; config/binds.el -*- lexical-binding: t; -*-
 
-;;; Evil command remaps
+;; :q kills buffer, :bd closes window
 (evil-ex-define-cmd "q"  #'kill-current-buffer)
 (evil-ex-define-cmd "bd" #'evil-quit)
 
-;;; Global keybindings
+;; tab navigation
 (map! "M-[" #'centaur-tabs-backward
       "M-]" #'centaur-tabs-forward)
 

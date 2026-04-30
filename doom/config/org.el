@@ -6,7 +6,11 @@
   (setq org-ellipsis " ⋯")
   (add-hook 'org-mode-hook #'org-modern-mode)
   (add-hook 'org-mode-hook #'flyspell-mode)
-  (add-hook 'org-mode-hook (lambda () (buffer-face-set '(:family "Monospace" :height 110))))
+  ;; dabbrev + file completion in org
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (setq-local completion-at-point-functions
+                          (list #'cape-dabbrev #'cape-file))))
   (add-hook 'org-columns-mode-hook (lambda () (org-modern-mode -1)))
   (advice-add 'org-columns-quit :after (lambda (&rest _) (org-modern-mode 1)))
 
@@ -32,23 +36,19 @@
                      :box (:line-width (1 . -1) :color "#1e3a5f")
                      :height 0.7)))
 
-;; Company mode completion for org files
-(set-company-backend! 'org-mode '(company-dabbrev company-ispell company-files))
-
-;; ORG-JOURNAL
-(use-package! org-journal
-  :init
-  (setq org-journal-dir "~/org/journal/"
-        org-journal-file-format "%Y_%m_%d.org"
-        org-journal-date-format "%A, %B %d, %Y"
-        org-journal-enable-agenda-integration t
-        org-journal-carryover-items "TODO=\"TODO\"|TODO=\"WAITING\"")
-  :config
-  (setq org-journal-file-type 'daily
-        org-journal-file-header (lambda (time)
-          (concat
-            (format "#+TITLE: %s\n\n"
-                    (format-time-string "%A, %B %d, %Y" time))
-            "* today\n** TODO  \n** TODO  \n** TODO \n\n"
-            "* what to do tomorrow \n\n"
-            "* How was my day?\n\n"))))
+;; (use-package! org-journal
+;;   :init
+;;   (setq org-journal-dir "~/org/journal/"
+;;         org-journal-file-format "%Y_%m_%d.org"
+;;         org-journal-date-format "%A, %B %d, %Y"
+;;         org-journal-enable-agenda-integration t
+;;         org-journal-carryover-items "TODO=\"TODO\"|TODO=\"WAITING\"")
+;;   :config
+;;   (setq org-journal-file-type 'daily
+;;         org-journal-file-header (lambda (time)
+;;           (concat
+;;             (format "#+TITLE: %s\n\n"
+;;                     (format-time-string "%A, %B %d, %Y" time))
+;;             "* today\n** TODO  \n** TODO  \n** TODO \n\n"
+;;             "* what to do tomorrow \n\n"
+;;             "* How was my day?\n\n"))))
