@@ -1,0 +1,46 @@
+* {
+    background-color: #FED9ED;
+    border-color:     #ED5AB3;
+    text-color:       #B0578D;
+    font:             "Monaspace Neon NF 11.5";
+}
+
+window {
+    anchor:     north;
+    location:   north;
+    width:      100%;
+    padding:    4px;
+    children:   [ horibox ];
+    border:     0 0 2px 0;
+}
+
+horibox {
+    orientation: horizontal;
+    children:   [ entry, listview ];
+    // children:   [ prompt, entry, listview ];
+}
+
+listview {
+    layout:     horizontal;
+    spacing:    5px;
+    lines:      100;
+}
+
+entry {
+    expand:     false;
+    width:      10em;
+}
+
+element {
+    padding: 0px 2px;
+}
+
+element selected {
+    background-color: #ED5AB3;
+    text-color:       #FED9ED;
+}
+
+element-text, element-icon {
+    background-color: inherit;
+    text-color:       inherit;
+}
