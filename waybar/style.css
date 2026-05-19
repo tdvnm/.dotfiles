@@ -1,18 +1,13 @@
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    font-family: 'SFMono Nerd Font, Medium', 'SFMono Nerd Font', FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 15px;
+    font-family: 'Monaspace Neon NF';
+    font-size: 14px;
 }
 
 window#waybar {
-    /* margin: 600px; */
     font-weight: 800;
     background-color: #FED9ED;
-    /*background-color: rgba(35, 35, 50, 0.8);*/
     border-bottom: 2px solid #ED5AB3;
-    /*color: #4ed99d;*/
     color: #B0578D;
-
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -21,64 +16,27 @@ window#waybar.hidden {
     opacity: 0.8;
 }
 
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
-
-window#waybar.termite {
-    background-color: #3F3F3F;
-}
-
-#mem {
-    font-weight: 800;
-}
-
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
-}
-
 button {
-    /* Use box-shadow instead of border so the text isn't offset */
     box-shadow: inset 0 -3px transparent;
-    /* Avoid rounded borders under each button name */
     border: none;
     border-radius: 0;
 }
-
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-/* button:hover { */
-/*     /1* background: inherit; *1/ */
-/*     /1* box-shadow: inset 0 -3px #ffffff; *1/ */
-/* } */
 
 #workspaces button {
     padding: 0 5px;
     font-weight: 500;
     color: #ED5AB3;
-    /*color: #4a253f;*/
-    /*color: #ffa8e2;*/
     background-color: transparent;
 }
 
 #workspaces button:hover {
     background: rgba(20, 0, 0, 0.2);
-    /* padding: 0 0px; */
     color: #ffffff;
 }
 
 #workspaces button.focused {
     font-weight: 900;
     color: #B0578D;
-    /* color: #000000; */
-    /* background-color: #94266f; */
-    /*box-shadow: inset 0 -3px transparent;*/
-    /*color: #ffffff;*/
 }
 
 #workspaces button.urgent {
@@ -92,29 +50,20 @@ button {
 }
 
 #battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
 #backlight,
 #network,
 #pulseaudio,
 #wireplumber,
-#custom-media,
+#bluetooth,
 #tray,
 #mode,
 #idle_inhibitor,
 #scratchpad,
-#mpd {
-    font-weight: 600;
+#custom-power-profile,
+#custom-protonvpn {
+    font-weight: 500;
     color: #ED5AB3;
-    /*color: #4ed99d;*/
     background-color: transparent;
-    padding: 0 0px;
-}
-
-#hello {
-    color: red;
 }
 
 #window,
@@ -122,49 +71,37 @@ button {
     margin: 0 4px;
 }
 
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left>widget:first-child>#workspaces {
+.modules-left > widget:first-child > #workspaces {
     margin-left: 0;
 }
 
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right>widget:last-child>#workspaces {
+.modules-right > widget:last-child > #workspaces {
     margin-right: 0;
 }
 
 #clock {
     font-weight: 900;
     color: #B0578D;
-    background-color: transparent;
 }
 
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
+#battery.low:not(.charging) {
+    color: #ffffff;
+    font-weight: 900;
+    background-color: #9B5A7F;
 }
-
 
 #battery.critical:not(.charging) {
-    color: #00dd99;
-    background-color: rgba(255, 255, 255, 0);
-    /* animation-name: blink; */
-    /* animation-duration: 0.5s; */
-    /* animation-timing-function: linear; */
-    /* animation-iteration-count: infinite; */
-    /* animation-direction: alternate; */
+    color: #ffffff;
+    font-weight: 900;
+    background-color: #6B3A57;
+    animation: pulse 1s ease-in-out infinite;
 }
 
-/* #battery.critical:not(.charging) { */
-/*     background-color: #f53c3c; */
-/*     color: #ffffff; */
-/*     animation-name: blink; */
-/*     animation-duration: 0.5s; */
-/*     animation-timing-function: linear; */
-/*     animation-iteration-count: infinite; */
-/*     animation-direction: alternate; */
-/* } */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
 
 label:focus {
     background-color: #000000;
@@ -172,72 +109,20 @@ label:focus {
 
 #tray {
     opacity: 0;
-    background-color: transparent;
 }
 
-#tray>.passive {
+#tray > .passive {
     -gtk-icon-effect: dim;
 }
 
-#tray>.needs-attention {
+#tray > .needs-attention {
     -gtk-icon-effect: highlight;
     background-color: #eb4d4b;
 }
 
-#idle_inhibitor {
-    /* background-color: #2d3436; */
-}
-
-#idle_inhibitor.activated {
-    /* background-color: #ecf0f1; */
-    /* color: #2d3436; */
-}
-
-#mpd {
-    background-color: #66cc99;
-    color: #2a5c45;
-}
-
-#mpd.disconnected {
-    background-color: #f53c3c;
-}
-
-#mpd.stopped {
-    background-color: #90b1b1;
-}
-
-#mpd.paused {
-    background-color: #51a37a;
-}
-
-#language {
-    background: #00b093;
-    color: #740864;
-    padding: 0 5px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state {
-    background: #97e1ad;
-    color: #000000;
-    padding: 0 0px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state>label {
-    padding: 0 5px;
-}
-
-#keyboard-state>label.locked {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-#scratchpad {
-    font-weight: 800;
-    color: #8a205c;
-    background: rgba(0, 0, 0, 0);
+#custom-protonvpn.connected {
+    color: #B0578D;
+    font-weight: 900;
 }
 
 #scratchpad.empty {
