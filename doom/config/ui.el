@@ -8,6 +8,7 @@
 
 ;; frameless + transparency
 (add-to-list 'default-frame-alist '(undecorated . t))
+(add-to-list 'default-frame-alist '(alpha . (92 . 92)))
 (set-frame-parameter nil 'alpha '(92 . 92))
 
 ;; keep cursor vertically centered

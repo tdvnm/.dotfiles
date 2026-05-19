@@ -4,3 +4,4 @@
       "M-f" #'treemacs-select-window)
 
 (setq treemacs-position 'right)
+(setq treemacs-default-visit-action 'treemacs-visit-node-in-most-recently-used-window)

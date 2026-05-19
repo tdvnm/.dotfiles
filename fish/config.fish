@@ -1,4 +1,5 @@
 function fish_greeting
+    nerdfetch
     # kitten icat --align left ~/Pictures/patterns.png
 end
 

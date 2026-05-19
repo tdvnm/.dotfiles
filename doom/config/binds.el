@@ -9,4 +9,5 @@
       "M-]" #'centaur-tabs-forward)
 
 (map! :leader
-      :desc "Find file in org" "o r" (cmd! (consult-find "~/org/")))
+      :desc "Find file in org" "o r" (cmd! (consult-find "~/org/"))
+      :desc "Search ripgrep" "s w" #'consult-ripgrep)

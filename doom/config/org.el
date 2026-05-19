@@ -24,7 +24,7 @@
 
 (after! org-modern
   (setq org-modern-star 'replace
-        org-modern-replace-stars '("✸" "◉" "○" "✿" "")
+        org-modern-replace-stars '("✸" "◉" "○" "" "󰫢")
         org-modern-fold-stars nil
         org-modern-todo-faces
         '(("TO_WATCH" . (:background "#89b4fa" :foreground "#1e1e2e" :distant-foreground "#cdd6f4"))
@@ -36,19 +36,15 @@
                      :box (:line-width (1 . -1) :color "#1e3a5f")
                      :height 0.7)))
 
-;; (use-package! org-journal
-;;   :init
-;;   (setq org-journal-dir "~/org/journal/"
-;;         org-journal-file-format "%Y_%m_%d.org"
-;;         org-journal-date-format "%A, %B %d, %Y"
-;;         org-journal-enable-agenda-integration t
-;;         org-journal-carryover-items "TODO=\"TODO\"|TODO=\"WAITING\"")
-;;   :config
-;;   (setq org-journal-file-type 'daily
-;;         org-journal-file-header (lambda (time)
-;;           (concat
-;;             (format "#+TITLE: %s\n\n"
-;;                     (format-time-string "%A, %B %d, %Y" time))
-;;             "* today\n** TODO  \n** TODO  \n** TODO \n\n"
-;;             "* what to do tomorrow \n\n"
-;;             "* How was my day?\n\n"))))
+(use-package! org-journal
+  :init
+  (setq org-journal-dir "~/org/journal/"
+        org-journal-file-format "W%V_%Y_%m_%d_%a.org"
+        org-journal-date-format "%A, %B %d, %Y"
+        org-journal-file-type 'daily
+        org-journal-enable-agenda-integration t
+        org-journal-carryover-items "TODO=\"TODO\"|TODO=\"WAITING\""
+        org-journal-file-header (lambda (_time)
+          (with-temp-buffer
+            (insert-file-contents "~/org/journal/daily.org")
+            (buffer-string)))))
