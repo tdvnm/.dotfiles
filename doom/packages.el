@@ -1,7 +1,4 @@
-;;; $DOOMDIR/packages.el -*- no-byte-compile: t; -*-
+;; -*- no-byte-compile: t; -*-
+;;; $DOOMDIR/packages.el
 
-(package! org-modern)
-(package! org-journal)
-
-(package! copilot
-  :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el" "dist")))
+(package! base16-theme)

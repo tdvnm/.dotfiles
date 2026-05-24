@@ -1,8 +1,8 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
+(setq org-directory "~/org/")
+
 (load! "config/ui")
 (load! "config/treemacs")
-(load! "config/org")
 (load! "config/latex")
 (load! "config/binds")
-(load! "config/copilot")

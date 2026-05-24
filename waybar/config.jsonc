@@ -61,7 +61,7 @@
     },
 
     "clock": {
-        "timezone": "Asia/Calcutta",
+        "timezone": "Asia/Kolkata",
         "format": "[ {:%a %d/%m %H:%M:%S} ] ",
         "interval": 1,
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
@@ -87,7 +87,9 @@
     },
 
     "bluetooth": {
-        "format": "[ bt {status} ]",
+        "format": "[ bt on ]",
+        "format-disabled": "[ bt off ]",
+        "format-off": "[ bt off ]",
         "format-connected": "[ bt {device_alias} ]",
         "format-connected-battery": "[ bt {device_alias} {device_battery_percentage} ]",
         "tooltip": false,
@@ -107,8 +109,8 @@
     "custom/power-profile": {
         "format": "[ {} ]",
         "interval": 5,
-        "exec": "profile=$(powerprofilesctl get); case $profile in power-saver) echo bat;; balanced) echo bal;; performance) echo per;; esac",
-        "on-click": "current=$(powerprofilesctl get); case $current in power-saver) powerprofilesctl set balanced;; balanced) powerprofilesctl set performance;; performance) powerprofilesctl set power-saver;; esac"
+        "exec": "profile=$(/run/current-system/sw/bin/powerprofilesctl get); case $profile in power-saver) echo bat;; balanced) echo bal;; performance) echo per;; esac",
+        "on-click": "current=$(/run/current-system/sw/bin/powerprofilesctl get); case $current in power-saver) /run/current-system/sw/bin/powerprofilesctl set balanced;; balanced) /run/current-system/sw/bin/powerprofilesctl set performance;; performance) /run/current-system/sw/bin/powerprofilesctl set power-saver;; esac"
     },
 
     "custom/protonvpn": {
