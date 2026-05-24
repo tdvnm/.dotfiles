@@ -7,14 +7,11 @@ remap("v", "J", ":m '>+1<CR>gv=gv")
 remap("i", "jj", "<Esc>")
 
 -- clear buffer
-vim.keymap.set("n", "<leader>bo", "<cmd>%bd|e#<cr>", { desc = "Close all buffers but the current one" })
+remap("n", "<leader>bo", "<cmd>%bd|e#<cr>", { desc = "Close all buffers but the current one" })
 
 -- NORMAL MODE
 remap("n", "<C-k>", "<C-u>zz")
 remap("n", "<C-j>", "<C-d>zz")
-remap("n", "n", "nzzzv")
-remap("n", "N", "Nzzzv")
-
 remap("n", "n", "nzzzv")
 remap("n", "N", "Nzzzv")
 
@@ -46,7 +43,6 @@ remap("n", "<leader>srn", ":set invnumber <Cr> :set invrelativenumber<CR>", { no
 
 -- signcolumn toggle
 remap("n", ":scy<Cr>", ":set signcolumn=yes<Cr>")
-remap("n", ":scy<Cr>", ":set signcolumn=yes<Cr>")
 remap("n", ":scn<Cr>", ":set signcolumn=no<Cr>")
 
 -- replace all occurances of the current word under the cursor
@@ -60,14 +56,3 @@ remap("n", "<C-right>", ":horizontal resize +5<cr>")
 
 -- OPEN AND CLOSE
 remap("n", "<Esc>x", ":q<CR>")
-
--- MACROS
--- EXPERIMENTAL
--- remap("n", ":please", "<A-q>treeeCR>")
--- remap("n", "i", ":highlight CursorLine guibg=bg guifg=bg<CR>i")
--- remap("n", "C", ":highlight CursorLine guibg=bg guifg=bg<CR>C")
--- remap("n", "A", ":highlight CursorLine guibg=bg guifg=bg<CR>A")
--- remap("n", "I", ":highlight CursorLine guibg=bg guifg=bg<CR>I")
--- remap("n", "a", ":highlight CursorLine guibg=bg guifg=bg<CR>a")
-
--- remap("i", "<esc>", "<esc>:highlight CursorLine guibg=bg guifg=#ffffff<Cr>")

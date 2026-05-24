@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
     imports = [ ./hardware-configuration.nix ];
 
@@ -35,10 +35,14 @@
         wrapperFeatures.gtk = true;
     };
 
-    xdg.portal = {
-        enable     = true;
-        wlr.enable = true;
-    };
+  xdg.portal = {  
+      enable     = true;
+      wlr.enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      config.sway = {                                                                         
+          default = lib.mkForce [ "wlr" "gtk" ];
+      };                                                                                      
+  };       
 
     services.xserver.xkb = { layout = "us"; variant = ""; };
 
@@ -146,7 +150,7 @@
         python3
         nodejs
         dotnet-sdk_9
-        texlive.combined.scheme-full
+        texlive.combined.scheme-medium
 
         # dev tools
         gh
@@ -154,6 +158,7 @@
         plocate
         unzip
         claude-code
+        nautilus
 
         # networking and security
         nmap

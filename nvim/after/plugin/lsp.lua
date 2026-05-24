@@ -25,7 +25,7 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 cmp.setup({
     snippet = {
         expand = function(args)
-            require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
+            require("luasnip").lsp_expand(args.body)
         end,
     },
     window = {
@@ -41,20 +41,10 @@ cmp.setup({
     sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "luasnip" },
-    }, {
-        -- { name = "buffer" },
     }),
 })
 
 -- LSP SETUP
-local lsp = vim.lsp
---- servers
--- lspconfig.tsserver.setup({
---     capabilities = capabilities,
--- })
-lspconfig.svelte.setup({
-    capabilities = capabilities,
-})
 lspconfig.lua_ls.setup({
     capabilities = capabilities,
     settings = {
@@ -65,30 +55,15 @@ lspconfig.lua_ls.setup({
         },
     },
 })
-lspconfig.pylyzer.setup({
-    capabilities = capabilities,
-})
-lspconfig.cssls.setup({
-    capabilities = capabilities,
-})
-lspconfig.texlab.setup({
-    capabilities = capabilities,
-})
 lspconfig.clangd.setup({
     capabilities = capabilities,
     cmd = { "clangd", "--background-index" },
 })
-
---- config
-lsp.handlers["textDocument/hover"] = lsp.with(vim.lsp.handlers.hover, {
-    border = "rounded",
-    -- title = "Hover",
-})
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    border = "rounded",
+lspconfig.texlab.setup({
+    capabilities = capabilities,
 })
 
--- diagnostic on hover
+-- diagnostic
 vim.diagnostic.config({
     virtual_text = false,
     float = { border = "rounded" },
@@ -98,14 +73,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
     callback = function(ev)
         vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-
         local opts = { buffer = ev.buf }
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
     end,
 })
 
-vim.diagnostic.config({})
-
--- Show line diagnostics automatically in hover window
 vim.o.updatetime = 950
 vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
