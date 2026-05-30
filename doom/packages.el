@@ -2,3 +2,4 @@
 ;;; $DOOMDIR/packages.el
 
 (package! base16-theme)
+(package! org-modern)

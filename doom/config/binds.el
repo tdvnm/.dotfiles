@@ -4,6 +4,7 @@
 (evil-ex-define-cmd "q"  #'kill-current-buffer)
 (evil-ex-define-cmd "bd" #'evil-quit)
 
+
 ;; tab navigation
 (map! "M-[" #'centaur-tabs-backward
       "M-]" #'centaur-tabs-forward)
