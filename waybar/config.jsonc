@@ -2,7 +2,7 @@
     "height": 28,
     "spacing": 2,
     "modules-left": ["sway/workspaces", "sway/window", "sway/mode", "sway/scratchpad"],
-    "modules-right": ["tray", "custom/power-profile", "idle_inhibitor", "custom/protonvpn", "bluetooth", "network", "backlight", "wireplumber", "battery", "clock"],
+    "modules-right": ["custom/power-profile", "idle_inhibitor", "custom/protonvpn", "bluetooth", "network", "backlight", "wireplumber", "battery", "clock"],
 
     "sway/workspaces": {
         "warp-on-scroll": false,
@@ -54,13 +54,7 @@
         }
     },
 
-    "tray": {
-        "format": "[ {icon} ]",
-        "icon-size": 15,
-        "spacing": 10
-    },
-
-    "clock": {
+"clock": {
         "timezone": "Asia/Kolkata",
         "format": "[ {:%a %d/%m %H:%M:%S} ] ",
         "interval": 1,

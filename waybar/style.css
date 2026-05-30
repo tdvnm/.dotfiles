@@ -54,7 +54,6 @@ button {
 #network,
 #wireplumber,
 #bluetooth,
-#tray,
 #mode,
 #idle_inhibitor,
 #scratchpad,
@@ -100,23 +99,6 @@ button {
     0% { opacity: 1; }
     50% { opacity: 0.3; }
     100% { opacity: 1; }
-}
-
-label:focus {
-    background-color: #000000;
-}
-
-#tray {
-    opacity: 0;
-}
-
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
 }
 
 #custom-protonvpn.connected {
