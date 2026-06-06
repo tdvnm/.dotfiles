@@ -1,9 +1,12 @@
 { config, pkgs, lib, ... }:
 {
+    imports = [ ./hardware-configuration.nix ];
+
     # ── boot ──────────────────────────────────────────────────────────────
     boot.loader.systemd-boot.enable      = true;
     boot.loader.efi.canTouchEfiVariables = true;
-    boot.kernelParams                    = [ "i915.enable_psr=0" ];
+    boot.kernelParams                    = [ "i915.enable_psr=0" "i915.enable_fbc=0" "i915.enable_dc=0" ];
+    boot.kernel.sysctl."kernel.sysrq"   = 1;   # enables magic sysrq key
 
     # ── networking ────────────────────────────────────────────────────────
     networking.hostName              = "nixos";
@@ -73,12 +76,20 @@
     services.fprintd.enable               = true;
     services.power-profiles-daemon.enable = true;
 
+    # upower — battery thresholds and critical action
+    services.upower = {
+        enable              = true;
+        percentageLow       = 20;
+        percentageCritical  = 10;
+        percentageAction    = 5;
+        criticalPowerAction = "HybridSleep";
+    };
+
     # locate database for plocate — builds index automatically
     services.locate = {
         enable    = true;
         package   = pkgs.plocate;
-        localuser = null;   # plocate runs as root to index everything
-    };
+   };
 
     # tor — client + onion service for blog on port 8080
     services.tor = {
@@ -96,11 +107,27 @@
     # ── Security & Auth ───────────────────────────────────────────────────
 
     # fingerprint auth for sudo and login
-    security.pam.services.sudo.fprintAuth         = true;
-    security.pam.services.gdm.fprintAuth          = true;
-    security.pam.services.gdm-password.fprintAuth = true;
-    security.pam.services.swaylock                = {};
+    # security.pam.services.sudo.fprintAuth         = true;
+    # security.pam.services.gdm.fprintAuth          = true;
+    # security.pam.services.gdm-password.fprintAuth = true;
+    # security.pam.services.swaylock                = {};
+  security.polkit.extraConfig = ''
+        polkit.addRule(function(action, subject) {
+            if (action.id == "net.reactivated.fprint.device.enroll" &&
+                subject.isInGroup("fprint")) {
+                return polkit.Result.YES;
+            }
+        });
+   '';
+  security.pam.services.sudo.fprintAuth             = true;
+  security.pam.services.gdm.fprintAuth             = true;
+  security.pam.services.gdm-password.fprintAuth    = true;
+  security.pam.services.gdm-fingerprint.fprintAuth = true;
+  security.pam.services.polkit-1.fprintAuth        = true;
 
+  security.pam.services.swaylock = {
+      fprintAuth = true;
+  };
     # show asterisks when typing passwords (so you can see length)
     security.sudo.extraConfig = ''
         Defaults pwfeedback
@@ -120,6 +147,7 @@
     };
 
     # ── Programs (with system integration) ────────────────────────────────
+    programs.kdeconnect.enable = true;
     programs.firefox.enable    = true;
     programs.fish.enable       = true;
     programs.dconf.enable      = true;
@@ -129,6 +157,12 @@
     programs.adb.enable        = true;
     programs.wireshark.enable  = true;
     programs.wireshark.package = pkgs.wireshark;
+
+    programs.steam = {
+        enable                       = true;
+        remotePlay.openFirewall      = true; # Open ports in the firewall for Steam Remote Play
+        dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    };
 
     programs.waybar.enable = true;
     systemd.user.services.waybar = {
@@ -151,6 +185,7 @@
         # browsers
         qutebrowser
         tor-browser
+        nyx
 
         # media
         vlc
@@ -160,6 +195,8 @@
 
         # languages & compilers
         gcc
+        cmake
+        libtool
         gnumake
         clang
         ghc
@@ -167,17 +204,21 @@
         nodejs
         pnpm
         dotnet-sdk_8
-        texlive.combined.scheme-medium
+        texlive.combined.scheme-full
 
         # databases
         postgresql
         redis
+        oneko
 
         # dev tools
         gh
         ripgrep
         unzip
         claude-code
+
+        mu
+        isync
 
         # networking & security
         nmap
@@ -215,6 +256,7 @@
 
         # document viewers
         zathura
+        cool-retro-term
 
         # sway & wayland
         rofi

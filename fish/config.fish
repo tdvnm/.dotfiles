@@ -27,6 +27,7 @@ alias nvconf "nv ~/.config/nvim/"
 
 # git alias
 alias gitall "git.sh"
+alias dot "git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 
 # directory aliases
 alias dev "cd ~/dev"

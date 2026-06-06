@@ -10,5 +10,6 @@
       "M-]" #'centaur-tabs-forward)
 
 (map! :leader
+      :desc "Toggle vterm right" "o t" #'my/vterm-toggle
       :desc "Find file in org" "o r" (cmd! (consult-find "~/org/"))
       :desc "Search ripgrep" "s w" #'consult-ripgrep)

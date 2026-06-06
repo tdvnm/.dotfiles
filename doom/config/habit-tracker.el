@@ -5,8 +5,8 @@
 (defface habit-tracker-blank  '((t :foreground "#313244")) "nil")
 
 (setq habit-trackers
-      '((:file "~/org/agenda/logs/learn.org" :start "2026-05-22" :title "learning tracker")
-        (:file "~/org/agenda/logs/media.org" :start "2026-05-22" :title "media tracker")))
+      '((:file "~/org/agenda/tracker/learn.org" :start "2026-05-22" :title "learning tracker")
+        (:file "~/org/agenda/tracker/media.org" :start "2026-05-22" :title "media tracker")))
 
 (defun habit-tracker--buf-name (cfg)
   (format "*%s*" (plist-get cfg :title)))
