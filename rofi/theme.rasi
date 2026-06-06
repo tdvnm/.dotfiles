@@ -36,8 +36,8 @@ element {
 }
 
 element selected {
-    background-color: #ED5AB3;
-    text-color:       #FED9ED;
+    background-color: #FF99C0;
+    text-color:       #7A2B5A;
 }
 
 element-text, element-icon {

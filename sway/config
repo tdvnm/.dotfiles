@@ -16,6 +16,7 @@ set $right l
 set $term kitty
 set $menu rofi -show drun
 
+
 ### Output
 output * bg /home/toad/.config/.dotfiles/wallpapers/wxp.png fill
 
@@ -24,6 +25,13 @@ output * bg /home/toad/.config/.dotfiles/wallpapers/wxp.png fill
     bindsym $mod+Shift+q kill
     bindsym $mod+q kill
     bindsym $mod+d exec $menu
+    bindsym $mod+x exec ~/.config/rofi/powermenu.sh
+    bindsym $mod+Shift+r exec ~/.config/rofi/run-output.sh
+    bindsym $mod+c exec ~/.config/rofi/calculator.sh
+    bindsym $mod+Shift+d exec ~/.config/rofi/dictionary.sh
+    bindsym $mod+period exec ~/.config/rofi/emoji.sh
+    bindsym $mod+u exec ~/.config/rofi/units.sh
+    bindsym $mod+Shift+x exec ~/.config/rofi/kill.sh
     floating_modifier $mod normal
     bindsym $mod+Shift+c reload
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
@@ -72,7 +80,6 @@ output * bg /home/toad/.config/.dotfiles/wallpapers/wxp.png fill
 
     # Layout
     bindsym $mod+b splith
-    bindsym $mod+v exec copyq show
     bindsym $mod+s layout stacking
     bindsym $mod+w layout tabbed
     bindsym $mod+e layout toggle split
@@ -120,21 +127,31 @@ bindsym $mod+r mode "resize"
 
 
 ### Startup
+    exec lxqt-policykit-agent
     exec copyq
+    exec emacs
+    exec firefox
+    exec flatpak run org.signal.Signal
+    exec flatpak run com.rtosta.zapzap
+    exec flatpak run com.spotify.Client
+    exec flatpak run com.bitwarden.desktop
+    exec tor-browser
 
 ### Workspace assignments
-    assign [app_id="emacs"]        workspace number 2
+    assign [class="Emacs"]         workspace number 2
     assign [app_id="firefox"]      workspace number 3
-    assign [app_id="zapzap"]       workspace number 5
-    assign [app_id="signal"]       workspace number 5
+    assign [app_id="com.rtosta.zapzap"]       workspace number 5
+    assign [app_id="org.signal.Signal"]       workspace number 5
     assign [app_id="vlc"]          workspace number 6
-    assign [class="Spotify"]       workspace number 6
-    assign [app_id="tor-browser"]  workspace number 8
-    assign [app_id="bitwarden"]    workspace number 9
+    assign [app_id="spotify"]  workspace number 6
+    assign [app_id="Tor Browser"]  workspace number 8
+    assign [class="Bitwarden"]  workspace number 8
     assign [app_id="qbittorrent"]  workspace number 9
 
 ### Float rules
+    bindsym $mod+v exec copyq show
     for_window [app_id="copyq"] floating enable, resize set 500 700, move position 1404 484
+
     for_window [app_id="pavucontrol"] floating enable
     for_window [app_id="nm-connection-editor"] floating enable
     for_window [class="Nm-connection-editor"] floating enable
