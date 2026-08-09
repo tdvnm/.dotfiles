@@ -6,14 +6,12 @@ hibernate="󰋊 hibernate"
 reboot="󰑓 reboot"
 shutdown="󰐥 shutdown"
 
-options="$lock\n$suspend\n$hibernate\n$reboot\n$shutdown"
-
-chosen=$(printf "$options" | rofi -dmenu \
+chosen=$(printf '%s\n' "$lock" "$suspend" "$hibernate" "$reboot" "$shutdown" | rofi -dmenu \
     -p "power:" \
     -theme ~/.config/rofi/theme.rasi)
 
 case "$chosen" in
-    "$lock")      swaylock ;;
+    "$lock")      ~/.config/sway/lock.sh ;;
     "$suspend")   systemctl suspend ;;
     "$hibernate") systemctl hibernate ;;
     "$reboot")    systemctl reboot ;;

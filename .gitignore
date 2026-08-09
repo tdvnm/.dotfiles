@@ -1,0 +1,16 @@
+# copyq keeps its clipboard history and runtime state right next to its
+# config. i had 80k of actual clipboard contents committed in here for a
+# while, on a public repo, so keep all of it out
+copyq/copyq_tab_*.dat
+copyq/copyq_tabs.ini
+copyq/copyq.lock
+copyq/copyq.pub
+copyq/copyq_geometry.ini
+copyq/copyq-monitor.ini*
+copyq/.copyq_s
+
+# agent scratch dirs
+.claude/
+
+# fish writes these itself
+fish/fish_variables

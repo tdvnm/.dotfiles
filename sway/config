@@ -1,62 +1,153 @@
-### Appearance
-font pango:Monaspace Neon NF 10
-titlebar_padding 1
-titlebar_border_thickness 0
-gaps inner 8
-default_border pixel 2
-client.focused   "#ff00b3" "#ff00b3" "#ffffff" "#ff00b3" "#ff00b3"
-client.unfocused "#000000" "#222222" "#888888" "#000000" "#000000"
+# sway — https://github.com/tdvnm/.dotfiles
+# read top to bottom: variables, hardware, look, workspaces, rules, keys, autostart
 
-### Variables
-set $mod Mod4
-set $left h
-set $down j
-set $up k
-set $right l
-set $term kitty
-set $menu rofi -show drun
+### variables
+    set $mod   Mod4
+    set $left  h
+    set $down  j
+    set $up    k
+    set $right l
 
+    set $term  kitty
+    set $menu  rofi -show drun
+    set $rofi  ~/.config/rofi
+    set $wall  ~/.config/.dotfiles/wallpapers/wxp.png
+    set $shots ~/Pictures/screenshots
 
-### Output
-output * bg /home/toad/.config/.dotfiles/wallpapers/wxp.png fill
+    # palette — kept in sync with waybar/style.css and rofi/theme.rasi
+    set $accent   #ED5AB3
+    set $accent2  #B0578D
+    set $text     #FED9ED
+    set $dim      #222222
+    set $dark     #000000
+    set $muted    #888888
+    set $urgent   #EB4D4B
 
-### Key bindings
-    bindsym $mod+Return exec ~/.config/sway/term.py
-    bindsym $mod+Shift+q kill
-    bindsym $mod+q kill
-    bindsym $mod+d exec $menu
-    bindsym $mod+x exec ~/.config/rofi/powermenu.sh
-    bindsym $mod+Shift+r exec ~/.config/rofi/run-output.sh
-    bindsym $mod+c exec ~/.config/rofi/calculator.sh
-    bindsym $mod+Shift+d exec ~/.config/rofi/dictionary.sh
-    bindsym $mod+period exec ~/.config/rofi/emoji.sh
-    bindsym $mod+u exec ~/.config/rofi/units.sh
-    bindsym $mod+Shift+x exec ~/.config/rofi/kill.sh
+    # defined once in lock.sh so rofi/powermenu.sh locks identically
+    set $lock ~/.config/sway/lock.sh
+
+### output
+    output * bg $wall fill
+
+### input
+    input type:touchpad {
+        tap enabled
+        dwt enabled
+        scroll_method two_finger
+        middle_emulation enabled
+    }
+
+    input type:keyboard {
+        xkb_layout us
+        repeat_delay 250
+        repeat_rate 40
+    }
+
+### appearance
+    font pango:Monaspace Neon NF 10
+    default_border pixel 2
+    default_floating_border pixel 2
+    gaps inner 8
+    titlebar_padding 1
+    titlebar_border_thickness 0
+
+    #                       border    background  text     indicator  child_border
+    client.focused          $accent   $accent     $text    $accent    $accent
+    client.focused_inactive $accent2  $accent2    $text    $accent2   $accent2
+    client.unfocused        $dark     $dim        $muted   $dark      $dark
+    client.urgent           $urgent   $urgent     $text    $urgent    $urgent
+    client.background       $dark
+
+### workspaces
+    # 1-3 and 6-7 land on the external display when one is attached
+    workspace 1  output HDMI-A-1 eDP-1
+    workspace 2  output HDMI-A-1 eDP-1
+    workspace 3  output HDMI-A-1 eDP-1
+    workspace 4  output eDP-1
+    workspace 5  output eDP-1
+    workspace 6  output HDMI-A-1 eDP-1
+    workspace 7  output HDMI-A-1 eDP-1
+    workspace 8  output eDP-1
+    workspace 9  output eDP-1
+    workspace 10 output eDP-1
+
+    # app_id matches wayland clients, class matches xwayland ones
+    assign [app_id="emacs"]                    workspace number 2
+    assign [class="Emacs"]                     workspace number 2
+    assign [app_id="firefox"]                  workspace number 3
+    assign [app_id="com.rtosta.zapzap"]        workspace number 5
+    assign [app_id="org.signal.Signal"]        workspace number 5
+    assign [app_id="vlc|spotify"]              workspace number 6
+    assign [class="vlc"]                       workspace number 6
+    assign [app_id="Tor Browser"]              workspace number 8
+    assign [class="Bitwarden|Tor Browser"]     workspace number 8
+    assign [app_id="qbittorrent"]              workspace number 9
+
+### window rules
+    # anything fullscreen keeps the screen awake
+    for_window [app_id=".*"] inhibit_idle fullscreen
+    for_window [class=".*"]  inhibit_idle fullscreen
+
+    for_window [window_role="pop-up|bubble|dialog|menu"] floating enable
+    for_window [app_id="pavucontrol|nm-connection-editor|blueman-manager|lxqt-policykit-agent"] \
+        floating enable, move position center
+    for_window [class="Pavucontrol|Nm-connection-editor|Blueman-manager"] \
+        floating enable, move position center
+
+    # pinned to the bottom-right of a 1920x1200 panel
+    for_window [app_id="copyq"] floating enable, resize set 500 700, move position 1404 484
+
+    # dropdown terminal on the copilot key — parked in the scratchpad on spawn
+    for_window [app_id="scratchterm"] floating enable, resize set 1000 640, \
+        move position center, move scratchpad, scratchpad show
+
+### key bindings — apps
+    bindsym $mod+Return       exec ~/.config/sway/term.py
+    bindsym $mod+Shift+Return exec $term
+
+    # the copilot key's firmware sends Super+Shift+XF86Assistant as one chord
+    # (all three within ~3ms), so bind the chord rather than the key alone
+    bindsym $mod+Shift+XF86Assistant exec ~/.config/sway/scratchterm.py
+    bindsym $mod+d            exec $menu
+    bindsym $mod+v            exec copyq show
+    bindsym $mod+x            exec $rofi/powermenu.sh
+    bindsym $mod+Shift+r      exec $rofi/run-output.sh
+    bindsym $mod+c            exec $rofi/calculator.sh
+    bindsym $mod+Shift+d      exec $rofi/dictionary.sh
+    bindsym $mod+period       exec $rofi/emoji.sh
+    bindsym $mod+u            exec $rofi/units.sh
+    bindsym $mod+Shift+x      exec $rofi/kill.sh
+    bindsym $mod+Shift+w      exec $rofi/wifi.sh
+
+### key bindings — session
+    bindsym $mod+q         kill
+    bindsym $mod+Shift+q   kill
+    bindsym $mod+Escape    exec $lock
+    bindsym $mod+Shift+c   reload
+    bindsym $mod+Shift+e   exec swaynag -t warning \
+        -m 'exit sway and end the wayland session?' -B 'exit sway' 'swaymsg exit'
     floating_modifier $mod normal
-    bindsym $mod+Shift+c reload
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
-    # Focus
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
+### key bindings — focus and movement
+    bindsym $mod+$left  focus left
+    bindsym $mod+$down  focus down
+    bindsym $mod+$up    focus up
     bindsym $mod+$right focus right
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
+    bindsym $mod+Left   focus left
+    bindsym $mod+Down   focus down
+    bindsym $mod+Up     focus up
+    bindsym $mod+Right  focus right
 
-    # Move window
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$left  move left
+    bindsym $mod+Shift+$down  move down
+    bindsym $mod+Shift+$up    move up
     bindsym $mod+Shift+$right move right
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
+    bindsym $mod+Shift+Left   move left
+    bindsym $mod+Shift+Down   move down
+    bindsym $mod+Shift+Up     move up
+    bindsym $mod+Shift+Right  move right
 
-    # Workspaces
+### key bindings — workspaces
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
     bindsym $mod+3 workspace number 3
@@ -67,6 +158,8 @@ output * bg /home/toad/.config/.dotfiles/wallpapers/wxp.png fill
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
+    bindsym $mod+Tab workspace back_and_forth
+
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
     bindsym $mod+Shift+3 move container to workspace number 3
@@ -78,30 +171,51 @@ output * bg /home/toad/.config/.dotfiles/wallpapers/wxp.png fill
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
 
-    # Layout
-    bindsym $mod+b splith
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
-    bindsym $mod+f fullscreen
+### key bindings — layout
+    bindsym $mod+b           splith
+    bindsym $mod+n           splitv
+    bindsym $mod+s           layout stacking
+    bindsym $mod+w           layout tabbed
+    bindsym $mod+e           layout toggle split
+    bindsym $mod+f           fullscreen
+    bindsym $mod+a           focus parent
+    bindsym $mod+space       focus mode_toggle
     bindsym $mod+Shift+space floating toggle
-    bindsym $mod+space focus mode_toggle
-    bindsym $mod+a focus parent
 
-    # Scratchpad
     bindsym $mod+Shift+minus move scratchpad
-    bindsym $mod+minus scratchpad show
+    bindsym $mod+minus       scratchpad show
 
-### Resize mode
+### key bindings — hardware
+    bindsym --locked XF86AudioMute         exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+    bindsym --locked XF86AudioMicMute      exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+    bindsym --locked XF86AudioLowerVolume  exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+    bindsym --locked XF86AudioRaiseVolume  exec wpctl set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%+
+    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+    bindsym --locked XF86MonBrightnessUp   exec brightnessctl set 5%+
+    bindsym --locked XF86AudioPlay         exec playerctl play-pause
+    bindsym --locked XF86AudioNext         exec playerctl next
+    bindsym --locked XF86AudioPrev         exec playerctl previous
+
+    bindswitch --reload --locked lid:on exec $lock
+
+### key bindings — screenshots
+    # both land in the clipboard and in $shots — print picks a region, mod+print grabs
+    # the whole screen with no prompt
+    bindsym Print exec 'mkdir -p $shots && f=$shots/$(date +%Y%m%d-%H%M%S).png && \
+        grim -g "$(slurp)" "$f" && wl-copy < "$f" && notify-send "screenshot" "region saved $f"'
+    bindsym $mod+Print exec 'mkdir -p $shots && f=$shots/screen-$(date +%Y%m%d-%H%M%S).png && \
+        grim "$f" && wl-copy < "$f" && notify-send "screenshot" "screen saved $f"'
+
+### resize mode
 mode "resize" {
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
+    bindsym $left  resize shrink width 10px
+    bindsym $down  resize grow height 10px
+    bindsym $up    resize shrink height 10px
     bindsym $right resize grow width 10px
 
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
+    bindsym Left  resize shrink width 10px
+    bindsym Down  resize grow height 10px
+    bindsym Up    resize shrink height 10px
     bindsym Right resize grow width 10px
 
     bindsym Return mode "default"
@@ -109,53 +223,16 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-### Utilities
-    bindsym --locked XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-    bindsym --locked XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-    bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%+
-    bindsym --locked XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
-    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+### autostart
+    # lock after 5 min, blank at 6; logind still owns lid-close suspend
+    exec swayidle -w \
+        timeout 300 '$lock' \
+        timeout 360 'swaymsg "output * power off"' \
+            resume 'swaymsg "output * power on"' \
+        before-sleep '$lock'
 
-    mode "screenshot" {
-        bindsym f exec 'grim - | wl-copy', mode "default"
-        bindsym s exec 'grim -g "$(slurp)" - | wl-copy', mode "default"
-        bindsym Escape mode "default"
-        bindsym Return mode "default"
-    }
-    bindsym Print mode "screenshot"
-
-
-### Startup
     exec lxqt-policykit-agent
     exec copyq
     exec emacs
-    exec firefox
-    exec flatpak run org.signal.Signal
-    exec flatpak run com.rtosta.zapzap
-    exec flatpak run com.spotify.Client
-    exec flatpak run com.bitwarden.desktop
-    exec tor-browser
-
-### Workspace assignments
-    assign [class="Emacs"]         workspace number 2
-    assign [app_id="firefox"]      workspace number 3
-    assign [app_id="com.rtosta.zapzap"]       workspace number 5
-    assign [app_id="org.signal.Signal"]       workspace number 5
-    assign [app_id="vlc"]          workspace number 6
-    assign [app_id="spotify"]  workspace number 6
-    assign [app_id="Tor Browser"]  workspace number 8
-    assign [class="Bitwarden"]  workspace number 8
-    assign [app_id="qbittorrent"]  workspace number 9
-
-### Float rules
-    bindsym $mod+v exec copyq show
-    for_window [app_id="copyq"] floating enable, resize set 500 700, move position 1404 484
-
-    for_window [app_id="pavucontrol"] floating enable
-    for_window [app_id="nm-connection-editor"] floating enable
-    for_window [class="Nm-connection-editor"] floating enable
-    for_window [app_id="blueman-manager"] floating enable
-    for_window [class="Blueman-manager"] floating enable
 
 include /etc/sway/config.d/*

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Format: "value from_unit to to_unit" e.g. "100 kg to lb" or "72 F to C"
+# format: "value from_unit to to_unit" e.g. "100 kg to lb" or "72 F to C"
 expr=$(rofi -dmenu -p "convert:" -theme ~/.config/rofi/theme.rasi)
 [ -z "$expr" ] && exit 0
 
