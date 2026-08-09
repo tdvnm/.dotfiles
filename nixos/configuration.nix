@@ -192,7 +192,10 @@
     }];
   };
 
+  # docker 28 went unmaintained in november 2025 and nixpkgs marks it
+  # insecure now, so pin 29. my dr-toke containers run on this
   virtualisation.docker.enable = true;
+  virtualisation.docker.package = pkgs.docker_29;
 
   # security and auth
 
