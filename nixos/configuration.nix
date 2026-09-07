@@ -32,9 +32,25 @@
   boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # display power saving off. the card binds to i915 even though xe is loaded
-  # too, so these still do something
-  boot.kernelParams = [ "i915.enable_psr=0" "i915.enable_fbc=0" "i915.enable_dc=0" ];
+  boot.kernelParams = [
+    # display power saving off. the card binds to i915 even though xe is
+    # loaded too, so these still do something
+    "i915.enable_psr=0"
+    "i915.enable_fbc=0"
+    "i915.enable_dc=0"
+
+    # byte offset of /swapfile inside the root fs, in 4k blocks. stage-1
+    # unlocks luks and points /sys/power/resume at the mapper, but nothing
+    # works out where in the filesystem the swapfile actually starts, so the
+    # kernel needs it here. recompute with
+    #   filefrag -v /swapfile   (first extent, physical_offset)
+    # if the swapfile is ever deleted or resized
+    "resume_offset=88797184"
+  ];
+
+  # the luks mapper, not the raw partition. stage-1 opens luks before it tries
+  # to resume, so the device is there by then
+  boot.resumeDevice = "/dev/mapper/luks-0588dfe5-e2e4-4904-b217-2c079c2b5be6";
 
   # keep this as one attrset. if i write boot.kernel.sysctl."foo" anywhere
   # else in the file nix says the attribute is already defined
@@ -63,6 +79,19 @@
     algorithm = "zstd";
     memoryPercent = 100;
   };
+
+  # zram lives in ram, so it cant hold a hibernation image. this is the disk
+  # swap that can. its on the luks root so the image is encrypted too, which
+  # a swapfile on /mnt/data would not be. 16g so all 14.5g of ram fits.
+  # priority is below zram's 5, so normal paging still goes to zram first and
+  # this only gets touched when zram is full or when hibernating
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 16 * 1024;
+      priority = -2;
+    }
+  ];
 
   # systemd-oomd mostly fires on swap running out, which never happened when
   # i had no swap, so it killed nothing in a month. earlyoom looks at free
@@ -147,7 +176,7 @@
       </Include>
     </Menu>
   '';
-
+programs.nix-ld.enable = true;
   # audio
 
   security.rtkit.enable = true;
@@ -171,12 +200,26 @@
     percentageLow = 20;
     percentageCritical = 10;
     percentageAction = 5;
-    criticalPowerAction = "HybridSleep";
+    # hibernate, not hybridsleep. hybridsleep writes the image but then stays
+    # in s3 still drawing power, and at 5% there isnt enough left to spend on
+    # that. hibernate powers off, so plugging in and booting restores the session
+    criticalPowerAction = "Hibernate";
   };
+
+  # the upstream unit is dbus activated only and the nixos module adds no
+  # wantedBy, so upowerd was not running unless something asked it for battery
+  # state. waybar reads sysfs directly, so nothing did, and the 5% action
+  # never had a daemon to fire it
+  systemd.services.upower.wantedBy = [ "multi-user.target" ];
 
   # services
 
   services.flatpak.enable = true;
+
+  # the pixel enumerates as an mtp device but nothing here could speak mtp,
+  # so it showed up in lsusb and nowhere else. gvfs is the backend, and
+  # kio-extras below is what gives dolphin the mtp:/ protocol
+  services.gvfs.enable = true;
 
   services.locate = {
     enable = true;
@@ -263,6 +306,8 @@
     # terminal and editors
     kitty
     emacs
+    vim
+    helix
 
     # browsers
     qutebrowser
@@ -273,6 +318,7 @@
     vlc
     qbittorrent
     snapshot
+    gimp
 
     # compilers and languages
     gcc
@@ -288,6 +334,7 @@
     nodejs
     pnpm
     texlive.combined.scheme-full
+    texlab
 
     # databases. the actual ones run in docker so these are just for psql and redis-cli
     postgresql
@@ -325,6 +372,9 @@
     zathura
     imv
     kdePackages.dolphin
+    kdePackages.kio-extras  # mtp:/ and friends. dolphin only had kdeconnect.so without it
+    libmtp                  # mtp-detect, for checking the phone is seen
+    jmtpfs                  # mounting the phone from the terminal
     gnome-software
     gnome-font-viewer
 
