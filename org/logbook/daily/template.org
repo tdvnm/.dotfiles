@@ -1,0 +1,16 @@
+#+TITLE: <name> log
+#+AUTHOR: toad
+#+TODO: TODO(t) STUDY(s) MAINT(m) WATCH(w) CONTACT(c) | DONE(d)
+#+STARTUP: show2levels
+
+* <week>
+* main quests
+** TODO 
+** ----------------------
+** STUDY 
+** WATCH 
+** MAINT 
+* agenda
+* contact
+** CONTACT 
+* motd

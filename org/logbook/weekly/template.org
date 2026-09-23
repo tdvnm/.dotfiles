@@ -1,0 +1,13 @@
+#+TITLE: <name>
+#+AUTHOR: toad
+#+DATE: 2026-09-14
+#+STARTUP: show2levels
+
+* agenda
+** monday
+*** stuff due on monday pulled from agenda.org
+** tuesday
+*** same for tuesday till sunday
+* watch
+* study
+* contact

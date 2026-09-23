@@ -1,9 +1,8 @@
 ;; -*- no-byte-compile: t; -*-
-;;; $DOOMDIR/packages.el
+;;; packages.el
 
-(package! base16-theme)
-(package! org-modern)
-(package! evil-goggles)
+;; doom modules supply the rest; sync after changing this list.
+(package! base16-theme)  ; needed by the local themes
 (package! nyan-mode)
-(package! rainbow-mode)
-(package! svelte-mode)
+
+(package! speed-type)

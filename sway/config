@@ -12,10 +12,10 @@
     set $menu  rofi -show drun
     set $rofi  ~/.config/rofi
     set $wall  ~/.config/.dotfiles/wallpapers/wxp.png
-    set $shots ~/Pictures/screenshots
+    set $shots ~/images/ss
 
     # palette — kept in sync with waybar/style.css and rofi/theme.rasi
-    set $accent   #ED5AB3
+    set $accent   #FF10F0
     set $accent2  #B0578D
     set $text     #FED9ED
     set $dim      #222222
@@ -53,8 +53,8 @@
 
     #                       border    background  text     indicator  child_border
     client.focused          $accent   $accent     $text    $accent    $accent
-    client.focused_inactive $accent2  $accent2    $text    $accent2   $accent2
-    client.unfocused        $dark     $dim        $muted   $dark      $dark
+    client.focused_inactive $dark     $dark       $muted   $dark      $dark
+    client.unfocused        $dark     $dark       $muted   $dark      $dark
     client.urgent           $urgent   $urgent     $text    $urgent    $urgent
     client.background       $dark
 
@@ -199,12 +199,11 @@
     bindswitch --reload --locked lid:on exec $lock
 
 ### key bindings — screenshots
-    # both land in the clipboard and in $shots — print picks a region, mod+print grabs
-    # the whole screen with no prompt
+    # both pick a region and land in the clipboard and in $shots — print saves
+    # straight away, mod+print asks for the path after the region is drawn
     bindsym Print exec 'mkdir -p $shots && f=$shots/$(date +%Y%m%d-%H%M%S).png && \
         grim -g "$(slurp)" "$f" && wl-copy < "$f" && notify-send "screenshot" "region saved $f"'
-    bindsym $mod+Print exec 'mkdir -p $shots && f=$shots/screen-$(date +%Y%m%d-%H%M%S).png && \
-        grim "$f" && wl-copy < "$f" && notify-send "screenshot" "screen saved $f"'
+    bindsym $mod+Print exec $rofi/screenshot.sh
 
 ### resize mode
 mode "resize" {

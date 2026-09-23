@@ -14,3 +14,15 @@ copyq/.copyq_s
 
 # fish writes these itself
 fish/fish_variables
+
+# configuration only; these are regenerated or machine-local
+**/__pycache__/
+*.pyc
+*.elc
+*.bak
+*~
+doom/.git/
+doom/.agents/
+doom/.codex/
+doom/custom.el
+copyq/copyq-filter.ini
