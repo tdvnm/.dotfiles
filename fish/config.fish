@@ -12,7 +12,6 @@ function fish_user_key_bindings
 end
 
 # shortcuts
-alias sudo "sudo "
 alias snv "sudoedit "
 alias clr "clear"
 alias md "mkdir"

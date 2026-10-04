@@ -16,9 +16,7 @@
 
     # palette — kept in sync with waybar/style.css and rofi/theme.rasi
     set $accent   #FF10F0
-    set $accent2  #B0578D
     set $text     #FED9ED
-    set $dim      #222222
     set $dark     #000000
     set $muted    #888888
     set $urgent   #EB4D4B

@@ -61,13 +61,7 @@ other sections just mark it done. title-based, no ids.
 pdf opens in a dedicated right column; nyan, startup banner, `speed-type-text`,
 rss (`~/org/library/feeds.org`), proverif. epdfinfo and texlab come from the system.
 
-## apply / test
+## apply
 
 runtime edits: restart or `M-x doom/reload`. module/package changes: `doom sync`
 then restart.
-
-```sh
-emacs --batch -L ~/.config/emacs/.local/straight/build-30.2/org \
-  -l test/org-daily-test.el -f ert-run-tests-batch-and-exit
-emacs --batch -l test/pdf-test.el -f ert-run-tests-batch-and-exit
-```
