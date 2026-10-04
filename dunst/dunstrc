@@ -1,0 +1,56 @@
+# dunst — notifications. only the settings that differ from dunst's built-in
+# defaults are here; `man dunst` documents every option and its default.
+
+[global]
+    # geometry
+    width = 300
+    height = (0, 300)
+    origin = top-right
+    offset = (20, 20)
+    corner_radius = 1
+    frame_width = 2
+    frame_color = "#b71d93"
+
+    # progress bar (dunstify -h int:value:NN)
+    progress_bar_corner_radius = 5   # fully rounded (half the 10px bar height)
+
+    # text
+    font = Monaspace Neon NF 11
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    ellipsize = middle
+
+    # icons. recursive lookup finds icons by name in the theme below; Adwaita
+    # ships with the desktop (sway extraPackages).
+    enable_recursive_icon_lookup = true
+    icon_theme = Adwaita
+    icon_position = left
+    min_icon_size = 32
+    max_icon_size = 96
+
+    # behaviour
+    sticky_history = yes
+    dmenu = rofi -dmenu -p dunst:
+    browser = xdg-open
+
+    # mouse: left closes one, middle fires the action then closes, right clears all
+    mouse_middle_click = do_action, close_current
+
+[urgency_low]
+    background = "#fed9ed"
+    foreground = "#B0578D"
+    timeout = 10
+
+[urgency_normal]
+    background = "#fed9ed"
+    foreground = "#B0578D"
+    timeout = 10
+    override_pause_level = 30
+
+[urgency_critical]
+    background = "#900000"
+    foreground = "#ffffff"
+    frame_color = "#ff0000"
+    timeout = 0
+    override_pause_level = 60

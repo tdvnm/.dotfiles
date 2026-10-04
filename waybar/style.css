@@ -1,0 +1,144 @@
+/* waybar — palette shared with sway/config and rofi/theme.rasi */
+
+@define-color bg        #FED9ED;
+@define-color accent    #ED5AB3;
+@define-color accent2   #B0578D;
+@define-color deep      #7A2B5A;
+@define-color light     #FFFFFF;
+@define-color urgent    #EB4D4B;
+/* battery alert fills — format-low/format-critical drop the inline teal so
+   these can invert the whole module */
+@define-color alert     #FF2D78;
+@define-color alertdeep #C9184A;
+
+* {
+    font-family: 'Monaspace Neon NF';
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: @bg;
+    border-bottom: 2px solid @accent;
+    color: @accent2;
+    font-weight: 800;
+}
+
+window#waybar.hidden {
+    opacity: 0.8;
+}
+
+/* every module shares one look; overrides follow below */
+#workspaces,
+#mode,
+#scratchpad,
+#window,
+#mpris,
+#power-profiles-daemon,
+#idle_inhibitor,
+#bluetooth,
+#network,
+#backlight,
+#pulseaudio,
+#battery,
+#clock {
+    /* no padding — the [ ] brackets are the separator, modules sit flush */
+    padding: 0;
+    color: @accent;
+    background-color: transparent;
+    font-weight: 500;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    border: none;
+    border-radius: 0;
+    color: @accent;
+    background-color: transparent;
+}
+
+#workspaces button:hover {
+    background-color: rgba(122, 43, 90, 0.15);
+    box-shadow: none;
+    text-shadow: none;
+}
+
+#workspaces button.focused,
+#workspaces button.visible {
+    color: @deep;
+    font-weight: 900;
+    box-shadow: inset 0 -2px @accent;
+}
+
+#workspaces button.urgent {
+    color: @urgent;
+    font-weight: 900;
+}
+
+#mode {
+    color: @light;
+    background-color: @accent2;
+    font-weight: 900;
+}
+
+/* the only intentional gap — separates the workspace list from the title */
+#window {
+    padding-left: 8px;
+}
+
+#clock {
+    color: @deep;
+    font-weight: 900;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: @deep;
+}
+
+/* under 20% the module breathes between two warm pinks — text stays fully
+   readable (no opacity dip); under 10% it breathes deeper and twice as fast */
+#battery.low:not(.charging),
+#battery.critical:not(.charging) {
+    color: @light;
+    font-weight: 900;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.low:not(.charging) {
+    animation-name: breathe-low;
+    animation-duration: 2s;
+}
+
+#battery.critical:not(.charging) {
+    animation-name: breathe-critical;
+    animation-duration: 0.8s;
+}
+
+@keyframes breathe-low {
+    from { background-color: @alert; }
+    to   { background-color: @alertdeep; }
+}
+
+@keyframes breathe-critical {
+    from { background-color: @alertdeep; }
+    to   { background-color: @urgent; }
+}
+
+/* states worth noticing get darker and bolder; everything else stays baseline */
+#pulseaudio.muted,
+#idle_inhibitor.activated {
+    color: @deep;
+    font-weight: 900;
+}
+
+tooltip {
+    background-color: @bg;
+    border: 2px solid @accent;
+}
+
+tooltip label {
+    color: @deep;
+}

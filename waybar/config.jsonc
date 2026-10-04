@@ -1,0 +1,180 @@
+// waybar — top bar for sway
+// launched by systemd (programs.waybar.enable), so PATH is /run/current-system/sw/bin
+//
+// colour rule: the short mnemonic labels are wrapped in <span color='#00736E'> teal
+// so they anchor each module, live values stay in the css pink. that hex is inline
+// because pango markup can't see css variables — search-and-replace it if you retheme.
+{
+    "layer": "top",
+    "position": "top",
+    "height": 28,
+    "spacing": 0,
+    "reload_style_on_change": true,
+
+    "modules-left":   ["sway/workspaces", "sway/mode", "sway/scratchpad", "sway/window"],
+    "modules-center": ["mpris"],
+    "modules-right":  ["power-profiles-daemon", "idle_inhibitor", "bluetooth",
+                       "network", "backlight", "pulseaudio", "battery", "clock"],
+
+    "sway/workspaces": {
+        "warp-on-scroll": false,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "/dev",
+            "2": "/org",
+            "3": "/web",
+            "4": "/misc",
+            "5": "/fax",
+            "6": "/med",
+            "7": "/doc",
+            "8": "/anon",
+            "9": "/tmp",
+            "10": "/var",
+            "default": "/usr"
+        }
+    },
+
+    "sway/mode": {
+        "format": "[{}]",
+        "tooltip": false
+    },
+
+    "sway/scratchpad": {
+        "format": "[<span color='#00736E'>scp</span> {count}]",
+        "show-empty": false,
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+
+    "sway/window": {
+        "format": "[{title}]",
+        "max-length": 80,
+        "tooltip": false,
+        "swap-icon-label": false,
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "$1",
+            "(.*) - VLC media player": "$1",
+            "(.*) - Tor Browser": "$1"
+        }
+    },
+
+    "mpris": {
+        "format": "[{status_icon} {dynamic}]",
+        "status-icons": {
+            "playing": "●",
+            "paused": "○",
+            "stopped": "○"
+        },
+        "dynamic-order": ["title"],
+        "dynamic-len": 24,
+        "max-length": 32,
+        "ellipsis": "…",
+        "tooltip-format": "{player} · {status}\n{title}\n{artist} — {album}"
+    },
+
+    "power-profiles-daemon": {
+        // left click cycles profiles over d-bus, no polling
+        "format": "[<span color='#00736E'>{icon}</span>]",
+        "format-icons": {
+            "power-saver": "bat",
+            "balanced": "bal",
+            "performance": "per",
+            "default": "pwr"
+        },
+        "tooltip-format": "power profile: {profile}\ndriver: {driver}"
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "[<span color='#00736E'>idle</span>]",
+            "deactivated": "[<span color='#00736E'>idle</span>]"
+        },
+        "tooltip-format-activated": "idle inhibited — screen stays awake",
+        "tooltip-format-deactivated": "idle allowed — locks after 5 min"
+    },
+
+    "bluetooth": {
+        "format-on": "[<span color='#00736E'>bt</span> on]",
+        "format-off": "[<span color='#00736E'>bt</span> off]",
+        "format-disabled": "[<span color='#00736E'>bt</span> off]",
+        "format-connected": "[<span color='#00736E'>bt</span> {device_alias}]",
+        "format-connected-battery": "[<span color='#00736E'>bt</span> {device_alias} {device_battery_percentage}]",
+        "tooltip-format": "{controller_alias}\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\n{device_enumerate}",
+        "on-click": "blueman-manager"
+    },
+
+    "network": {
+        // left click picks a network in rofi, right click opens the full editor
+        "interval": 5,
+        "format-wifi": "[<span color='#00736E'>wifi</span> {essid} {signalStrength}]",
+        "format-ethernet": "[<span color='#00736E'>eth</span> {ipaddr}/{cidr}]",
+        "format-linked": "[<span color='#00736E'>net</span> {ifname} no ip]",
+        "format-disconnected": "[<span color='#00736E'>net</span> offline]",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ifname}  {ipaddr}/{cidr}\ndown {bandwidthDownBits}  up {bandwidthUpBits}",
+        "tooltip-format-ethernet": "{ifname}  {ipaddr}/{cidr}\ndown {bandwidthDownBits}  up {bandwidthUpBits}",
+        "tooltip-format-disconnected": "disconnected",
+        "on-click": "$HOME/.config/rofi/wifi.sh",
+        "on-click-right": "nm-connection-editor"
+    },
+
+    "backlight": {
+        // scroll adjusts brightness natively
+        "format": "[<span color='#00736E'>bk</span> {percent}]",
+        "scroll-step": 5,
+        "min-brightness": 1,
+        "tooltip": false
+    },
+
+    "pulseaudio": {
+        "format": "[<span color='#00736E'>vol</span> {volume}]",
+        "format-bluetooth": "[<span color='#00736E'>vol</span> {volume} <span color='#00736E'>bt</span>]",
+        "format-muted": "[<span color='#00736E'>vol</span> mute]",
+        "scroll-step": 5,
+        "max-volume": 150,
+        "tooltip-format": "{desc} — {volume}%",
+        "on-click": "pavucontrol",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+
+    "battery": {
+        // thresholds match services.upower in configuration.nix
+        "interval": 30,
+        "states": {
+            "low": 20,
+            "critical": 10
+        },
+        "format": "[<span color='#00736E'>bat</span> {capacity}-]",
+        "format-charging": "[<span color='#00736E'>bat</span> {capacity}+]",
+        "format-plugged": "[<span color='#00736E'>bat</span> {capacity}=]",
+        "format-full": "[<span color='#00736E'>bat</span> full]",
+        "format-alt": "[<span color='#00736E'>bat</span> {time}]",
+        // alert states carry no inline colour so css can invert the whole module;
+        // still on charge, so keep the normal look while it recovers
+        "format-low": "[bat {capacity}-]",
+        "format-critical": "[bat {capacity}-]",
+        "format-charging-low": "[<span color='#00736E'>bat</span> {capacity}+]",
+        "format-charging-critical": "[<span color='#00736E'>bat</span> {capacity}+]",
+        "format-time": "{H}h{M}m",
+        "tooltip-format": "{capacity}% · {power:.1f}W · health {health}%\n{time}"
+    },
+
+    "clock": {
+        "timezone": "Asia/Kolkata",
+        "interval": 1,
+        "format": "[<span color='#00736E'>{0:%a}</span> {0:%d/%m %H:%M:%S}]",
+        "format-alt": "[<span color='#00736E'>w{0:%V}</span> {0:%Y-%m-%d}]",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "format": {
+                "today": "<b>{}</b>"
+            }
+        },
+        "actions": {
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    }
+}
