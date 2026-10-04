@@ -15,12 +15,8 @@ set.signcolumn = "yes"
 
 set.wrap = true
 
--- Recover unsaved edits after a crash; keep saved versions out of project dirs.
-set.swapfile = true
-set.backup = true
-local backupdir = vim.fn.stdpath("state") .. "/backup"
-vim.fn.mkdir(backupdir, "p", 448)
-set.backupdir = backupdir .. "//"
+set.swapfile = false
+set.backup = false
 set.undofile = true
 set.undodir = os.getenv("HOME") .. "/.local/undodir"
 set.clipboard:append("unnamedplus")
