@@ -1,5 +1,0 @@
-# machine state, not config
-/test
-/custom.el
-*.elc
-*~
